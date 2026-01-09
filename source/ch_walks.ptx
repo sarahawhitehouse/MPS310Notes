@@ -1,0 +1,12 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="ch_walks">
+    <title>Walks</title>
+<introduction>
+<p>In this chapter we investigate walks in graphs.  We first look at some basic definitions and examples, we discuss Dijkstra's algorithm for finding the shortest path between two points in a weighted graph, and we discuss the notions of Eulerian and Hamiltonian graphs.
+</p>
+</introduction>
+<xi:include href="./s_walks_basics.ptx" />
+<xi:include href="./s_walks_eulerian.ptx" />
+<xi:include href="./s_walks_hamiltonian.ptx" />			  
+
+<xi:include href="./s_walks_exercises.ptx" />
+</chapter>

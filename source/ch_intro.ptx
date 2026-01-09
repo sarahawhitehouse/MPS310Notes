@@ -1,0 +1,16 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="ch_intro">
+    <title>Introduction</title>
+<introduction>
+<p>The first chapter is an introduction, including the formal definition of a graph and many terms we will use throughout.  More importantly, however, are examples of these concepts and how you should think about them.  As a first nontrivial use of graph theory, we explain how to solve the "Instant Insanity" puzzle.</p>
+</introduction>
+
+<xi:include href="./s_intro_firstlook.ptx" />
+<xi:include href="./s_intro_degrees.ptx" />
+<xi:include href="./s_intro_isomorphisms.ptx" />
+<xi:include href="./s_intro_instantinsanity.ptx" />
+<xi:include href="./s_intro_trees.ptx" />
+<xi:include href="./s_intro_exercises.ptx" />
+
+
+
+</chapter>

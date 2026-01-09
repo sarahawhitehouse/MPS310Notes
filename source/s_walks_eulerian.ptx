@@ -1,0 +1,252 @@
+<section xmlns:xi="http://www.w3.org/2001/XIncludes" xml:id="s_walks_eulerian">
+<title>Eulerian Walks</title>
+<intro><p>In this section we introduce the problem of Eulerian walks, often hailed as the origins of graph theroy. We will see that determining whether or not a walk has an Eulerian circuit will turn out to be easy; in contrast, the problem of determining whether or not one has a Hamiltonian walk, which seems very similar, will turn out to be very difficult.</p>
+</intro>
+
+<subsection><title>The bridges of Konigsburg</title>
+
+<p>The city of Konigsberg (now Kaliningrad) was built on two sides of a river, near the site of two large islands.   The four sectors of the city were connected by seven bridges, as follows (picture from Wikipedia):</p>
+<figure xml:id="bridges_konigsberg"> <caption>The city of Konigsburg in Euler's time</caption>
+<image width="70%" source="images/Konigsberg_bridges.png" />
+</figure>
+<p>A group of friends enjoyed strolling through the city, and created a game: could they take a walk in the city, crossing every bridge exactly once, and return to where they started from? They couldn't find such a walk, but they couldn't prove such a walk wasn't possible, and so they wrote to the mathematician Euler, who proved that such a walk is not possible.</p>
+</subsection>
+
+<subsection><title>Eulerian Walks: definitions</title>
+<p>We will formalize the problem presented by the citizens of Konigsburg in graph theory, which will immediately present an obvious generalization.</p>
+
+<p>We may represent the city of Konigsburg as a graph <m>\Gamma_K</m>; the four sectors of town will be the vertices of <m>\Gamma_K</m>, and edges between vertices will represent the bridges (hence, this will not be a simple graph).</p>
+
+<p>Then, the question reduces to finding a closed walk in the graph that will uses every edge <em>exactly</em> once. In particular, this walk will not use any edge more than once and hence will be a trail.</p>
+
+<exercise>Which graphs have walks that use every vertex and edge exactly once?</exercise>
+
+<definition><p>Let <m>G</m> be a graph.  An <em>Eulerian cycle</em> is a closed walk that uses every edge of <m>G</m> exactly once.</p>
+
+<p>  If <m>G</m> has an Eulerian cycle, we say that <m>G</m> is <em>Eulerian</em>.</p>
+
+<p>If we weaken the requirement, and do not require the walk to be closed, we call it an Euler path, and if a graph <m>G</m> has an Eulerian path but not an Eulerian cycle, we say <m>G</m> is <em>semi-Eulerian</em></p></definition>
+
+<p>The question of the walkers of Konigsburg is then equivalent to asking if the graph <m>\Gamma_K</m> is Eulerian. The birth of graph theory is usually marked to the following theorem, proven by Euler:</p>  
+
+<theorem xml:id="thm_eulerian"><p>A connected graph <m>\Gamma</m> is Eulerian if and only if every vertex of <m>\Gamma</m> has even degree</p></theorem>
+
+
+</subsection>
+
+
+<subsection><title>A digression on proofs, formality, and intuition</title>
+
+<p>Before discussing the proof of <xref ref="thm_eulerian" />, it's worth a little meta-discussion about proofs, intuition vs. rigor, and mathematics as a whole.  The proofing <xref ref="thm_eulerian" /> is a common exam question, and you may not be used to studying for reproducing proofs on exams.  Certainly one way to prepare for such a question is to memorize the proof word for word.  There doesn't seem to be a lot of obvious value in this approach, however.  So why ask these questions on the exam? And this opens the door to more philosophical questions as well: how should we think/interact with proofs anyway?  What's the point of it all?</p>
+
+<p>Usually in books or in lectures, proofs are only given in slick, elegant, polished formal versions.  There are many reasons for this: there's a certain beauty to it; it's important to write it out formally to make sure it's all correct; there's only so much time in lectures, and brevity is a virtue anyway.  People turn away from long works, and the main point of a proof, after all, is to prove something, and it's easier to check that it's all correct if it's shorter.</p>
+
+<p>But there's a very real downside to this presentation of proofs as the finished, elegant thing.  Most important to me is that the way mathematics is written formally on the page is very different from how it lives actively in our brains (or my brain, at least).  Nobody (or certainly very few people) comes up with proofs in the elegant short start to finish way that they're written.  Typically, there's a mess of chaotic half ideas that slowly get refined down to the written proof that you see.  But often the mess is the exciting part, </p>  
+
+<p>We sketch a few of the main ideas of the proof in an informal setting now, before giving a complete formal proof.  To learn this proof for the exam, you should have this informal picture in your head, and perhaps a skeleton outline of the main formal points that need to be shown.  You shouldn't try to memorize the formal proof word for word like a poem; instead, practice expanding out from the informal ideas/skeleton proof to the full formal proof on your own a few times.</p>
+
+<p>It is much easier to see that if a graph <m>G</m> <em>is</em> Eulerian, then every vertex has even degree.  Suppose we wanted to show that a given vertex <m>v</m> was Eulerian; let us stand at the vertex <m>v</m> and have a friend trace out the Eulerian cycle.  We'll wait for a while, and then the friend will appear at <m>v</m> along some edge <m>e_1</m>, and then live along some different edge <m>e_2</m>.  We'll wait some more, and they'll reappear coming from new edge <m>e_3</m>, and then leave again along some edge <m>e_4</m>.</p>
+
+<p>This will continue until they have arrived or left by every edge that hits <m>v</m>.  But every time they visit <m>v</m>, they must arrive by one edge, and leave by another one, and hence every visit uses up an even number of edges, and so the degree <m>d(v)</m> of <m>v</m> must be even.  But there was nothing special about the vertex <m>v</m>, and hence the degree of every vertex must be even.</p>
+
+<p>To argue the other way is more difficult; before trying to show there's a closed path that uses all the edges, let's just construct <em>any</em> closed path.  We pick some vertex <m>v_0</m> to start at, and just randomly choose an edge out of <m>v_0</m>, to some other vertex <m>v_1</m>, and from there randomly choosing any edge we haven't used yet to another vertex <m>v_n</m>, and so on.</p>
+
+<p>To construct a closed walk, we'd like to show we eventually have to return to <m>v_0</m>.  We're only working with finite graphs, so our walk can't continue forever; the only possibility we have to rule out is that we reach some vertex <m>v_n</m> and find that we have already used every vertex incident to <m>v_n</m>.  But as we saw before, the path will pair up the edges incident to each vertex as an arriving edge and a departing edge, and we know the degree of <m>v_n</m> is even.  If the path has already visited <m>v_n k</m> times, then we'll have used <m>2k</m> of the edges incident to it; when we arrive for the <m>k+1</m>st time we'll use one edge, and in all we'll have used <m>2k+1</m> edges, an odd number; since the degree of <m>v_n</m> is even there must be at least one edge we haven't used to exit by.</p>
+
+<p>You might worry that the argument above suggests we can carry on the walk forever, which we obviously can't do since the graph is finite, but the argument above doesn't work for <m>v_0</m>: when we start the path out at <m>v_0</m>, we haven't had to arrive there, and so the edge we initially leave by is not paired with anything.  Therefore, if <m>\Gamma</m> has all vertices with even degree, and we walk randomly for as long as we can, we'll always get stuck at our starting vertex.</p>
+
+<p>Hence, we have shown that if <m>\Gamma</m> is a graph with all vertices having even degree, there will exist some closed walk in <m>\Gamma</m>, but the walk we created was chosen randomly, and there's no guarantee it will include all the edge of <m>\Gamma</m> -- in all likelihood, it won't.</p>
+
+<p>But if we look at the edges we haven't used, they will form a simpler graph. <m>\Gamma^\prime</m>.  There's no reason for <m>\Gamma^\prime</m> to be connected, but it's not too hard to see that every vertex of <m>\Gamma^\prime</m> will still have even degree: in <m>\Gamma</m> every vertex had even degree, and we saw in our first proof that a closed walk that doesn't repeat edges uses up an even number of edges at each vertex, and so we'll have an even number of edges left at each point.  Thus, each connected piece of <m>\Gamma^\prime</m> satisfies the hypothesis of the problem, and is simpler, so we can try to find a closed walk on each of connected piece of <m>\Gamma^\prime</m>, and then "stitch" the results together to get a walk that uses all the pieces. In the formal proof, this process is best captured using induction, and we'll save the complete description until then, but for now we illustrate the process in an example</p>
+<figure xml:id="fig_walkdrawing_stupid"> <caption>Example of a walk</caption>
+<image width="70%">
+<latex-image><![CDATA[\begin{tikzpicture}
+\begin{scope}[every node/.style={circle,thick,draw}]
+    \node (A) at (0,0) {A};
+    \node (B) at (0,3) {B};
+    \node (C) at (2.5,4) {C};
+    \node (D) at (2.5,1) {D};
+    \node (E) at (2.5,-3) {E};
+    \node (F) at (5,3) {F} ;
+\end{scope}
+
+\begin{scope}[every node/.style={fill=white,circle}, >={Stealth[black]}]
+  \begin{scope}[            
+              every edge/.style={draw=red,very thick}]
+
+  \path [->] (A) edge node {$6$} (D);
+ \path [->] (D) edge node {$4$} (C);
+    \path [->] (C) edge node {$5$} (F);
+    \path [->] (F) edge node {$3$} (D);
+    \path [->] (D) edge node {$8$} (E);
+\end{scope}
+    
+    \path  (A) edge node {$3$} (B);
+    \path  (B) edge node {$1$} (C); 
+    \path  (A) edge node {$7$} (E);
+    \path  (E) edge node {$9$} (F); 
+    \path  (B) edge[bend right=60] node {$10$} (E); 
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</figure>
+
+
+<example>
+<p>Let's see an example of how the process of finding an Eulerian path works for the graph <m>\Gamma</m> in Figure below.</p>
+<figure xml:id="fig_euler_example"> <caption>A graph <m>\Gamma</m></caption>
+<image width="70%"><latex-image><![CDATA[\begin{tikzpicture}
+\begin{scope}[scale=2]
+\begin{scope}[every node/.style={circle, thick, draw}]
+  \node (a) at (0,0) {$a$};
+  \node (b) at (1,0) {$b$};
+  \node (c) at (2,0) {$c$};
+  \node (d) at (3,0) {$d$};
+  \node (e) at (0,1) {$e$};
+  \node (f) at (1,1) {$f$};
+  \node (g) at (2,1) {$g$};
+  \node (h) at (0,2) {$h$};
+  \node (i) at (1,2) {$i$};
+  \node (j) at (2,2) {$j$};
+\end{scope}
+\draw (a)--(e)--(h)--(i)--(f)--(e)--(i)--(j)--(g)--(c)--(d)--(g)--(b)--(a);
+\end{scope}
+\end{tikzpicture}
+]]>
+</latex-image></image></figure>
+<p>It probably isn't hard to immediately find an Eulerian cycle for <m>\Gamma</m> just by examination, but to illustrate the algorithm to begin with, we are going to deliberately choose a cycle that doesn't use every edge, the cycle aeijgba show in the next figure:</p>
+<figure xml:id="fig_euler_example_next"> <caption>Initializing with a closed walk in <m>\Gamma</m></caption>
+<image width="70%">
+<latex-image><![CDATA[\begin{tikzpicture}[scale=2]
+\begin{scope}[every node/.style={circle, thick, draw}]
+  \node (a) at (0,0) {$a$};
+  \node (b) at (1,0) {$b$};
+  \node (c) at (2,0) {$c$};
+  \node (d) at (3,0) {$d$};
+  \node (e) at (0,1) {$e$};
+  \node (f) at (1,1) {$f$};
+  \node (g) at (2,1) {$g$};
+  \node (h) at (0,2) {$h$};
+  \node (i) at (1,2) {$i$};
+  \node (j) at (2,2) {$j$};
+\end{scope}
+\draw[thin, gray] (a)--(e)--(h)--(i)--(f)--(e)--(i)--(j)--(g)--(c)--(d)--(g)--(b)--(a);
+\begin{scope}[every edge/.style={draw=red, very thick}, every node/.style={fill=white, circle}]
+\path[->] (a) edge node {1} (e);
+\path[->] (e) edge node {2} (i);
+\path[->] (i) edge node {3} (j);
+\path[->] (j) edge node {4} (g);
+\path[->] (g) edge node {5} (b);
+\path[->] (b) edge node {6} (a);
+\end{scope}
+\end{tikzpicture}
+]]>
+</latex-image></image></figure>
+
+<p>To extend our cycle to an Eulerian cycle, we delete all the edges used in the graph, and study the remaining graph.  In our case, this graph has two connected components, a four cycle and a three cycle.  Both of these are cycles themselves, they're trivially Eulerian, -- in general, it might take some work to find an Eulerian cycle for the components, but won't be too hard as the graph will be smaller.</p>
+
+<figure xml:id="fig_euler_example_third"> <caption>Parts of <m>\Gamma</m> missed by our walk</caption>
+<image width="70%">
+<latex-image><![CDATA[\begin{tikzpicture}[scale=2]
+\begin{scope}[every node/.style={circle, thick, draw}]
+
+
+  \node (c) at (2,0) {$c$};
+  \node (d) at (3,0) {$d$};
+  \node (e) at (0,0) {$e$};
+  \node (f) at (1,0) {$f$};
+  \node (g) at (2,1) {$g$};
+  \node (h) at (0,1) {$h$};
+  \node (i) at (1,1) {$i$};
+\end{scope}
+
+\begin{scope}[every node/.style={fill=white, circle}]
+\path[->] (e) edge node {1} (h);
+\path[->] (h) edge node {2} (i);
+\path[->] (i) edge node {3} (f);
+\path[->] (f) edge node {4} (e);
+
+\path[->] (g) edge node {1} (c);
+\path[->] (c) edge node {2} (d);
+\path[->] (d) edge node {3} (g);
+\end{scope}
+
+\end{tikzpicture}
+]]>
+</latex-image></image></figure>
+
+<p>Finally, we stitch our Eulerian paths together.  We follow our initial cycle that wasn't an Eulerian cycle, and the first time we hit a vertex that's in one of the other cycles, we insert that cycle in before we continue along our original path.  In our example, our original cycle was aeijgba.  a is not eitehr of the other components, but e is in the four cycle, so before we continue on our original cycle to i, we insert the four cycle ehije, giving aehije.  We now continue along our original cycle, adding ei, ij, jg, until we reach a vertex g that's in one of the added cycles, which we then insert, giving aehijeijgcdg as our cycle so far.</p>
+
+<p>Continuing this process, we find aehijeijgcdgba as an Eulerian cycle.</p>
+
+<figure xml:id="fig_euler_example_last"> <caption>The Eulerian cycle stitched together</caption>
+<image width="70%">
+<latex-image><![CDATA[\begin{tikzpicture}[scale=2]
+
+
+
+\begin{scope}[every node/.style={circle, thick, draw}]
+  \node (a) at (0,0) {$a$};
+  \node (b) at (1,0) {$b$};
+  \node (c) at (2,0) {$c$};
+  \node (d) at (3,0) {$d$};
+  \node (e) at (0,1) {$e$};
+  \node (f) at (1,1) {$f$};
+  \node (g) at (2,1) {$g$};
+  \node (h) at (0,2) {$h$};
+  \node (i) at (1,2) {$i$};
+  \node (j) at (2,2) {$j$};
+\end{scope}
+
+\begin{scope}[every node/.style={fill=white, circle}]
+\path[->] (a) edge node {1} (e);
+\path[->] (e) edge node {2} (h);
+\path[->] (h) edge node {3} (i);
+\path[->] (i) edge node {4} (f);
+\path[->] (f) edge node {5} (e);
+\path[->] (e) edge node {6} (i);
+\path[->] (i) edge node {7} (j);
+\path[->] (j) edge node {8} (g);
+\path[->] (g) edge node {9} (c);
+\path[->] (c) edge node {10} (d);
+\path[->] (d) edge node {11} (g);
+\path[->] (g) edge node {12} (b);
+\path[->] (b) edge node {13} (a);
+\end{scope}
+
+\end{tikzpicture}
+]]>
+</latex-image></image></figure>
+
+</example>
+
+
+
+<proof>
+<p>We first show that if <m>\bfG</m> is Eulerian, then every vertex <m>v\in\bfG</m> has even degree.  For suppose the Eulerian cycle visits the vertex <m>v k</m> times.  Each time it visits <m>v</m> it must arrive by one edge, and leave by a different edge. Since the walk is Eulerian, every edge adjacent to <m>v</m> will be used exactly once by the walk, and so we see that <m>d(v)=2k</m> as desired.</p>
+
+<p>Now we suppose that <m>\bfG</m> is connected and that every vertex has even degree.  We will induct on the number of edges of <m>\bfG</m>.  If it has no edges, then the theorem is vacuously true -- we can just take the empty walk.</p>
+
+<p>For the inductive step, suppose that <m>\bfG</m> is connected with <m>m</m> edges, and that every vertex of <m>\bfG</m> has even degree.  Further assume, for the inductive hypothesis, that every graph <m>\bfH</m> with these properties and <em>less</em> than <m>m</m> edges is Eulerian.</p>
+
+
+<p>Suppose for now that we can find <em>a</em> closed walk <m>w</m> in <m>\bfG</m> that doesn't repeat any edges -- we will justify that this at the end of the proof.  If the closed walk <m>w</m> uses all the edges of <m>\bfG</m>, then <m>w</m> is an Eulerian cycle, and we are done.</p>
+
+<p>If <m>w</m> doesn't use all the edges of <m>\bfG</m>, we can delete all the edges used in <m>w</m> and get a graph <m>\bfG\setminus w</m> with fewer than <m>m</m> edges.  Though <m>\bfG\setminus w</m> might not be connected, every vertex in <m>\bfG\setminus w</m> will have even degree, as we've subtracted an even number of edges from each vertex that <m>w</m> visits as argued in the first part of the proof.  Thus, by the inductive hypothesis each connected component <m>\bfG\setminus w</m> will have an Eulerian cycle.  Since the <m>\bfG</m> is connected, <m>w</m> must include at least one point from each component of <m>\bfG\setminus w</m>, and so we can insert the Eulerian walk on the edges of each component of <m>\bfG\setminus w</m> from each component into <m>w</m> when we reach that component, to obtain a closed walk <m>w^\prime</m> that uses all the edges of <m>\bfG</m> exactly once, as desired.</p>
+
+<p>All that remains is to justify that <m>\bfG</m> contains at least one closed walk, given that every vertex has even degree and it contains at least one edge.  We form a walk <m>w</m> by starting at any vertex <m>v</m> and at each step choosing any edge we've never traversed before at random as the next step of the walk.  We claim that <m>w</m> must eventually return back to the starting vertex <m>v</m>.  Since <m>\bfG</m> is finite, and we don't repeat edges, the only way we could fail to return to <m>v</m> would be if our walk "got stuck" -- that is, at some point we reach a vertex <m>u</m> and find that every edge out of <m>u</m> has already been traversed.  However, we know that <m>u</m> has an even number of edges, and also arguing as in the first paragraph of the proof that every time the walk <m>w</m> visits <m>u</m> it must use up two edges, one for arrival and one for departure.  Hence, when we arrive at <m>u</m> at any time we must have used up an odd number of edges at <m>u</m> -- an even number from all the previous times we have visited <m>u</m>, plus one more that we just arrived from.  Since <m>u</m> has even degree, there must always be at least one edge available for us to choose from, and so we can never "get stuck" and will eventually reach <m>w</m> again.</p>  
+</proof>
+
+<remark><p>Note that it does <em>not</em> say: "A graph <m>\Gamma</m> is Eulerian if and only if it is connected and every vertex has even degree." This statement in quotation marks is false, but for "stupid" reasons.  If <m>\Gamma</m> is Eulerian, and <m>E_n</m> is the graph with <m>n</m> vertices wit no edges, then <m>\Gamma\sqcup E_n</m> is Eulerian but not connected.  These are the only examples of such graphs.</p> </remark>
+
+<theorem><p>A connected graph <m>\Gamma</m> is semi-Eulerian if and only if it has exactly two vertices with odd degree.</p></theorem>
+
+<proof><p>A minor modification of our argument for Eulerian graphs shows that the condition is necessary.  Suppose that <m>\Gamma</m> is semi-Eulerian, with Eulerian path <m>v_0, e_1, v_1,e_2,v_3,\dots,e_n,v_n</m>.  Then at any vertex other than the starting or ending vertices, we can pair the entering and leaving edges up to get an even number of edges.</p>
+
+<p>However, at the first vertex <m>v_0</m> the path leaves along <m>e_1</m> the first time but never enters it accordingly, so that <m>v_0</m> has an odd degree; similarly, at <m>v_n</m> the path enters one final time along <m>e_n</m> without leaving, and so <m>v_n</m> also has an odd degree.</p>
+
+<p>To see the condition is sufficient we could also modify the argument for the Eulerian case slightly, but it is slicker instead to <em>reduce</em> to the Eulerian case.  Suppose that <m>\Gamma</m> is connected, and that vertices <m>v</m> and <m>w</m> have odd degree and all other vertices of <m>\Gamma</m> have even degree.  Then we can construct a new graph <m>\Gamma^\prime</m> by adding an extra edge <m>e=vw</m> to <m>\Gamma</m>.  Then <m>\Gamma^\prime</m> is connected and every vertex has even degree, and so it has an Eulerian cycle.  Deleting the edge <m>e</m> that we added from this cycle gives an Eulerian path from <m>v</m> to <m>w</m> in <m>\Gamma</m>.</p></proof>
+</subsection>
+
+
+
+</section>
