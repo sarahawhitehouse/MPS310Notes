@@ -24,7 +24,7 @@
 <sbsgroup widths="60% 30%" margins="auto" valign="middle">
 <sidebyside><p>Suppose we coloured the four edges adjacent to the top vertex blue, green, red and purple, from left to right, and now look at the bottom edge.  It is adjacent to edges coloured green and red, and so must be blue or purple.  By symmetry, it's equivalent to colour it either colour, so let's suppose it's blue, giving us the following picture:</p>
 
-<image width="80%" source="images/K5EdgeColouring1.png" /></sidebyside>
+<image width="80%" source="K5EdgeColouring1.png" /></sidebyside>
 <sidebyside><p>Now the edge on the right is adjacent to edges coloured red, blue and purple, and so must be green.  But now we have a problem -- consider the edges labeled <m>x</m> and <m>y</m> in the next drawing:</p>
 
 <image width="80%" source="images/K5EdgeColouring2.png" />
