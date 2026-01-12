@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Exercises</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MPS310: Graph Theory">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.991c135ccf182bf5.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1c010553c35c544c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.677a75a9120449ff.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="MPS310.html"><span class="title">MPS310: Graph Theory</span></a></h1>
+<p class="byline"></p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_graphalgorithms_traveling-salesperson.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_algorithms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch_graphs_on_surfaces.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\set}[1]{\{1,2,\dotsc,#1\,\}}
+    \newcommand{\ints}{\mathbb{Z}}
+    \newcommand{\posints}{\mathbb{N}}
+    \newcommand{\rats}{\mathbb{Q}}
+    \newcommand{\reals}{\mathbb{R}}
+    \newcommand{\complexes}{\mathbb{C}}
+    \newcommand{\twospace}{\mathbb{R}^2}
+    \newcommand{\threepace}{\mathbb{R}^3}
+    \newcommand{\dspace}{\mathbb{R}^d}
+    \newcommand{\nni}{\mathbb{N}_0}
+    \newcommand{\nonnegints}{\mathbb{N}_0}
+    \newcommand{\dom}{\operatorname{dom}}
+    \newcommand{\ran}{\operatorname{ran}}
+    \newcommand{\prob}{\operatorname{prob}}
+    \newcommand{\Prob}{\operatorname{Prob}}
+    \newcommand{\height}{\operatorname{height}}
+    \newcommand{\width}{\operatorname{width}}
+    \newcommand{\length}{\operatorname{length}}
+    \newcommand{\crit}{\operatorname{crit}}
+    \newcommand{\inc}{\operatorname{inc}}
+    \newcommand{\HP}{\mathbf{H_P}}
+    \newcommand{\HCP}{\mathbf{H^c_P}}
+    \newcommand{\GP}{\mathbf{G_P}}
+    \newcommand{\GQ}{\mathbf{G_Q}}
+    \newcommand{\AG}{\mathbf{A_G}}
+    \newcommand{\GCP}{\mathbf{G^c_P}}
+    \newcommand{\PXP}{\mathbf{P}=(X,P)}
+    \newcommand{\QYQ}{\mathbf{Q}=(Y,Q)}
+    \newcommand{\GVE}{\mathbf{G}=(V,E)}
+    \newcommand{\HWF}{\mathbf{H}=(W,F)}
+    \newcommand{\bfC}{\mathbf{C}}
+    \newcommand{\bfG}{\mathbf{G}}
+    \newcommand{\bfH}{\mathbf{H}}
+    \newcommand{\bfF}{\mathbf{F}}
+    \newcommand{\bfI}{\mathbf{I}}
+    \newcommand{\bfK}{\mathbf{K}}
+    \newcommand{\bfP}{\mathbf{P}}
+    \newcommand{\bfQ}{\mathbf{Q}}
+    \newcommand{\bfR}{\mathbf{R}}
+    \newcommand{\bfS}{\mathbf{S}}
+    \newcommand{\bfT}{\mathbf{T}}
+    \newcommand{\bfNP}{\mathbf{NP}}
+    \newcommand{\bftwo}{\mathbf{2}}
+    \newcommand{\cgA}{\mathcal{A}}
+    \newcommand{\cgB}{\mathcal{B}}
+    \newcommand{\cgC}{\mathcal{C}}
+    \newcommand{\cgD}{\mathcal{D}}
+    \newcommand{\cgE}{\mathcal{E}}
+    \newcommand{\cgF}{\mathcal{F}}
+    \newcommand{\cgG}{\mathcal{G}}
+    \newcommand{\cgM}{\mathcal{M}}
+    \newcommand{\cgN}{\mathcal{N}}
+    \newcommand{\cgP}{\mathcal{P}}
+    \newcommand{\cgR}{\mathcal{R}}
+    \newcommand{\cgS}{\mathcal{S}}
+    \newcommand{\bfn}{\mathbf{n}}
+    \newcommand{\bfm}{\mathbf{m}}
+    \newcommand{\bfk}{\mathbf{k}}
+    \newcommand{\bfs}{\mathbf{s}}
+    \newcommand{\bijection}{\xrightarrow[\text{onto}]{\text{$1$--$1$}}}
+    \newcommand{\injection}{\xrightarrow[]{\text{$1$--$1$}}}
+    \newcommand{\surjection}{\xrightarrow[\text{onto}]{}}
+    \newcommand{\nin}{\not\in}
+    \newcommand{\prufer}{\mbox{prüfer}}
+    \DeclareMathOperator{\fix}{fix}
+    \DeclareMathOperator{\stab}{stab}
+    \DeclareMathOperator{\var}{var}
+    \newcommand{\inv}{^{-1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="MPS310-2.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_firstlook.html" class="internal"><span class="codenumber">1.1</span> <span class="title">A first look at graphs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_firstlook.html#s_intro_firstlook-2" class="internal"><span class="codenumber">1.1.1</span> <span class="title">The idea of a graph</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_firstlook.html#s_intro_firstlook-3" class="internal"><span class="codenumber">1.1.2</span> <span class="title">The formal definition of a graph</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_firstlook.html#s_intro_firstlook-4" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Basic examples and concepts</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_degrees.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Degree and handshaking</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_degrees.html#s_intro_degrees-2" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Definition of degree</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_degrees.html#s_intro_degrees-3" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Extended example: Chemistry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_degrees.html#s_intro_degrees-4" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Handshaking lemma and first applications</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_isomorphisms.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Graph Isomorphisms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_isomorphisms.html#s_intro_isomorphisms-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Isomorphic graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_isomorphisms.html#s_intro_isomorphisms-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Heuristics for showing graphs are or aren’t isomorphic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_isomorphisms.html#s_intro_isomorphisms-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Cultural Literacy: The Graph Isomorphism Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_instantinsanity.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Instant Insanity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-3" class="internal"><span class="codenumber">1.4.1</span> <span class="title">A puzzle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-4" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Enter graph theory</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-5" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Proving that our cubes were impossible</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-6" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Other cube sets</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_trees.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Trees</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_trees.html#s_intro_trees-3" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Basics on trees</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_trees.html#s_intro_trees-4" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Leaves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_trees.html#s_intro_trees-5" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Trees in Chemistry</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_intro_exercises.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_walks.html" class="internal"><span class="codenumber">2</span> <span class="title">Walks</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_walks_basics.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Walks: the basics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_basics.html#s_walks_basics-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Walks and connectedness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_basics.html#s_walks_basics-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Types of Walks</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_walks_eulerian.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Eulerian Walks</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_eulerian.html#s_walks_eulerian-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The bridges of Konigsburg</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_eulerian.html#s_walks_eulerian-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Eulerian Walks: definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_eulerian.html#s_walks_eulerian-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">A digression on proofs, formality, and intuition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_walks_hamiltonian.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Hamiltonian cycles</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_walks_exercises.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_algorithms.html" class="internal"><span class="codenumber">3</span> <span class="title">Algorithms</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_graphalgorithms_prufer.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Prüfer Codes</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Minimum Weight Spanning Trees</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#s_graphalgorithms_min-wt-span-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Preliminaries</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#s_graphalgorithms_min-wt-span-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Kruskal’s Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#alg_prim" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Prim’s Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#s_graphalgorithms_min-wt-span-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Comments on Efficiency</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_graphalgorithms_digraphs.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Digraphs</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Dijkstra’s Algorithm for Shortest Paths</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html#s_graphalgorithms_shortest-paths-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Description of the Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html#s_graphalgorithms_shortest-paths-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Example of Dijkstra’s Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html#s_graphalgorithms_shortest-paths-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">The Correctness of Dijkstra’s Algorithm</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Algorithm for Longest Paths</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-motivation" class="internal"><span class="codenumber">3.5.1</span> <span class="title"></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-motivation-5" class="internal"><span class="codenumber">3.5.1.1</span> <span class="title">Our running example</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Longest Path Algorithm</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm-3" class="internal"><span class="codenumber">3.5.2.1</span> <span class="title">Topolgical sort</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm-4" class="internal"><span class="codenumber">3.5.2.2</span> <span class="title">The Algorithm</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm-5" class="internal"><span class="codenumber">3.5.2.3</span> <span class="title">Critical path analysis</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html" class="internal"><span class="codenumber">3.6</span> <span class="title">The Traveling Salesperson Problem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html#subs_graphalgorithms_tsp_intro" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Introduction to the Traveling Salesperson Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html#subs_graphalgorithms_tsp_upper" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Finding upper bounds to the TSP</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html#subs_graphalgorithms_tsp_lower" class="internal"><span class="codenumber">3.6.3</span> <span class="title">A lower point for TSP</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises active"><div class="toc-title-box"><a href="s_graphalgorithms_exercises.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_graphs_on_surfaces.html" class="internal"><span class="codenumber">4</span> <span class="title">Graphs on Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_intro.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to Graphs on Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_intro.html#s_graphs_on_surfaces_intro-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">The Utilities Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_intro.html#s_graphs_on_surfaces_intro-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title"></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_planarity_algorithm.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The planarity algorithm for Hamiltonian graphs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_planarity_algorithm.html#s_graphs_on_surfaces_planarity_algorithm-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Stereographic Projection and Unnecessary cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_planarity_algorithm.html#s_graphs_on_surfaces_planarity_algorithm-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">The planarity algorithm</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Kuratowski’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html#s_graphs_on_surfaces_Kuratowski-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Planarity, subgraphs, and subdivisions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html#s_graphs_on_surfaces_Kuratowski-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Kuratowski’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html#s_graphs_on_surfaces_Kuratowski-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Applying Kuratowski’s Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Drawing Graphs on Other surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html#s_graphs_on_surfaces_other_surfaces-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Motivation and culture: Manifolds and Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html#s_graphs_on_surfaces_other_surfaces-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Graphs on the Torus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html#s_graphs_on_surfaces_other_surfaces-5" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Möbius strip</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_euler.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Euler’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_euler.html#s_graphs_on_surfaces_euler-3" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Counting faces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_euler.html#s_graphs_on_surfaces_euler-4" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Applications of Euler’s theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_graphs_on_surfaces_exercises.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_colourings.html" class="internal"><span class="codenumber">5</span> <span class="title">Colourings</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chromatic_number.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Chromatic number</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chromatic_index.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Chromatic index and applications</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Introduction to the chromatic polynomial</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html#s_chromatic_polynomial_intro-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Definition and examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html#s_chromatic_polynomial_intro-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Gluing</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html#s_chromatic_polynomial_intro-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Case by case analysis</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_chromatic_polynomial_more.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Chromatic Polynomial continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_more.html#s_chromatic_polynomial_more-3" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Deletion-Contraction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_more.html#s_chromatic_polynomial_more-4" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Chromatic polynomial is a polynomial</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_chromatic_exercises.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="exercises" id="s_graphalgorithms_exercises"><h2 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h2>
+<article class="exercise exercise-like" id="s_graphalgorithms_exercises-1"><h3 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-1-1-1">For the graph in <a href="s_graphalgorithms_exercises.html#fig_span_tree_ex1" class="xref" data-knowl="./knowl/xref/fig_span_tree_ex1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.1">Figure 3.7.1</a>, use Kruskal’s algorithm (“avoid cycles”) to find a minimum weight spanning tree. Your answer should include a complete list of the edges, indicating which edges you take for your tree and which (if any) you reject in the course of running the algorithm.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_span_tree_ex1"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/images/span_tree_ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Find a minimum weight spanning tree<div class="autopermalink" data-description="Figure 3.7.1"><a href="#fig_span_tree_ex1" title="Copy heading and permalink for Figure 3.7.1" aria-label="Copy heading and permalink for Figure 3.7.1">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 3.7.1"><a href="#s_graphalgorithms_exercises-1" title="Copy heading and permalink for Exercise 3.7.1" aria-label="Copy heading and permalink for Exercise 3.7.1">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-2"><h3 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-2-1-1">For the graph in <a href="s_graphalgorithms_exercises.html#fig_span_tree_ex1" class="xref" data-knowl="./knowl/xref/fig_span_tree_ex1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.1">Figure 3.7.1</a>, use Prim’s algorithm (“build tree”) to find a minimum weight spanning tree. Your answer should list the edges selected by the algorithm in the order they were selected.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.2"><a href="#s_graphalgorithms_exercises-2" title="Copy heading and permalink for Exercise 3.7.2" aria-label="Copy heading and permalink for Exercise 3.7.2">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-3"><h3 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-3-1-1">For the graph in <a href="s_graphalgorithms_exercises.html#fig_span_tree_ex2" class="xref" data-knowl="./knowl/xref/fig_span_tree_ex2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.2">Figure 3.7.2</a>, use Kruskal’s algorithm (“avoid cycles”) to find a minimum weight spanning tree. Your answer should include a complete list of the edges, indicating which edges you take for your tree and which (if any) you reject in the course of running the algorithm.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_span_tree_ex2"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/images/span_tree_ex2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Find a minimum weight spanning tree<div class="autopermalink" data-description="Figure 3.7.2"><a href="#fig_span_tree_ex2" title="Copy heading and permalink for Figure 3.7.2" aria-label="Copy heading and permalink for Figure 3.7.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 3.7.3"><a href="#s_graphalgorithms_exercises-3" title="Copy heading and permalink for Exercise 3.7.3" aria-label="Copy heading and permalink for Exercise 3.7.3">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-4"><h3 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-4-1-1">For the graph in <a href="s_graphalgorithms_exercises.html#fig_span_tree_ex2" class="xref" data-knowl="./knowl/xref/fig_span_tree_ex2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.2">Figure 3.7.2</a>, use Prim’s algorithm (“build tree”) to find a minimum weight spanning tree. Your answer should list the edges selected by the algorithm in the order they were selected.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.4"><a href="#s_graphalgorithms_exercises-4" title="Copy heading and permalink for Exercise 3.7.4" aria-label="Copy heading and permalink for Exercise 3.7.4">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-5"><h3 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-5-1-1">For the graph in <a href="s_graphalgorithms_exercises.html#fig_span_tree_ex3" class="xref" data-knowl="./knowl/xref/fig_span_tree_ex3.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.3">Figure 3.7.3</a>, use Kruskal’s algorithm (“avoid cycles”) to find a minimum weight spanning tree. Your answer should include a complete list of the edges, indicating which edges you take for your tree and which (if any) you reject in the course of running the algorithm.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_span_tree_ex3"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="external/images/span_tree_ex3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Find a minimum weight spanning tree<div class="autopermalink" data-description="Figure 3.7.3"><a href="#fig_span_tree_ex3" title="Copy heading and permalink for Figure 3.7.3" aria-label="Copy heading and permalink for Figure 3.7.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 3.7.5"><a href="#s_graphalgorithms_exercises-5" title="Copy heading and permalink for Exercise 3.7.5" aria-label="Copy heading and permalink for Exercise 3.7.5">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-6"><h3 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-6-1-1">For the graph in <a href="s_graphalgorithms_exercises.html#fig_span_tree_ex3" class="xref" data-knowl="./knowl/xref/fig_span_tree_ex3.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.3">Figure 3.7.3</a>, use Prim’s algorithm (“build tree”) to find a minimum weight spanning tree. Your answer should list the edges selected by the algorithm in the order they were selected.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.6"><a href="#s_graphalgorithms_exercises-6" title="Copy heading and permalink for Exercise 3.7.6" aria-label="Copy heading and permalink for Exercise 3.7.6">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-7"><h3 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="s_graphalgorithms_exercises-7-1-1">
+<div class="para">A new local bank is being created and will establish a headquarters <span class="process-math">\(h\text{,}\)</span> two branches <span class="process-math">\(b_1\)</span> and <span class="process-math">\(b_2\text{,}\)</span> and four ATMs <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(a_3\text{,}\)</span> and <span class="process-math">\(a_4\text{.}\)</span> They need to build a computer network such that the headquarters, branches, and ATMs can all intercommunicate. Furthermore, they will need to be networked with the Federal Reserve Bank of Atlanta, <span class="process-math">\(f\text{.}\)</span> The costs of the feasible network connections (in units of $10,000) are listed below:</div>
+<div class="displaymath process-math" id="s_graphalgorithms_exercises-7-1-1-9">
+\begin{align*}
+h f \amp  \quad 80 \amp 
+h b_1 \amp  \quad 10\amp  h b_2 \amp  \quad 20\amp 
+b_1 b_2 \amp  \quad 8\\
+f b_1 \amp  \quad 12\amp 
+f a_1 \amp  \quad 20\amp  b_1 a_1 \amp  \quad 3\amp 
+a_1 a_2 \amp  \quad 13\\
+h a_2 \amp  \quad 6\amp 
+b_2 a_2 \amp  \quad 9\amp  b_2 a_3 \amp  \quad 40\amp 
+a_1 a_4 \amp  \quad 3\\
+a_3 a_4 \amp \quad 6
+\end{align*}
+</div>
+<div class="para">The bank wishes to minimize the cost of building its network (which must allow for connection, possibly routed through other nodes, from each node to each other node), however due to the need for high-speed communication, they <em class="alert">must</em> pay to build the connection from <span class="process-math">\(h\)</span> to <span class="process-math">\(f\)</span> as well as the connection from <span class="process-math">\(b_2\)</span> to <span class="process-math">\(a_3\text{.}\)</span> Give a list of the connections the bank should establish in order to minimize their total cost, subject to this constraint. Be sure to explain how you selected the connections and how you know the total cost is minimized.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.7"><a href="#s_graphalgorithms_exercises-7" title="Copy heading and permalink for Exercise 3.7.7" aria-label="Copy heading and permalink for Exercise 3.7.7">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-8"><h3 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-8-1-1">A disconnected weighted graph obviously has no spanning trees. However, it is possible to find a spanning forest of minimum weight in such a graph. Explain how to modify both Kruskal’s algorithm and Prim’s algorithm to do this.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.8"><a href="#s_graphalgorithms_exercises-8" title="Copy heading and permalink for Exercise 3.7.8" aria-label="Copy heading and permalink for Exercise 3.7.8">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-9"><h3 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-9-1-1">Prove <a href="s_graphalgorithms_min-wt-span.html#prop_graphalgorithms_spanforest" class="xref" data-knowl="./knowl/xref/prop_graphalgorithms_spanforest.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 3.2.3">Proposition 3.2.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.9"><a href="#s_graphalgorithms_exercises-9" title="Copy heading and permalink for Exercise 3.7.9" aria-label="Copy heading and permalink for Exercise 3.7.9">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-10"><h3 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-10-1-1">In the paper where Kruskal’s algorithm first appeared, he considered the algorithm a route to a nicer proof that in a connected weighted graph with no two edges having the same weight, there is a <em class="emphasis">unique</em> minimum weight spanning tree. Prove this fact using Kruskal’s algorithm.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.10"><a href="#s_graphalgorithms_exercises-10" title="Copy heading and permalink for Exercise 3.7.10" aria-label="Copy heading and permalink for Exercise 3.7.10">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-11"><h3 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-11-1-1">Use Dijkstra’s algorithm to find the distance from <span class="process-math">\(a\)</span> to each other vertex in the digraph shown in <a href="s_graphalgorithms_exercises.html#fig_graphalgorithms_dijkstra_ex1" class="xref" data-knowl="./knowl/xref/fig_graphalgorithms_dijkstra_ex1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.4">Figure 3.7.4</a> and a directed path of that length.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_graphalgorithms_dijkstra_ex1"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/images/dijkstra_ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A directed graph<div class="autopermalink" data-description="Figure 3.7.4"><a href="#fig_graphalgorithms_dijkstra_ex1" title="Copy heading and permalink for Figure 3.7.4" aria-label="Copy heading and permalink for Figure 3.7.4">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 3.7.11"><a href="#s_graphalgorithms_exercises-11" title="Copy heading and permalink for Exercise 3.7.11" aria-label="Copy heading and permalink for Exercise 3.7.11">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-12"><h3 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-12-1-1">
+<a href="s_graphalgorithms_exercises.html#tab_digraph1" class="xref" data-knowl="./knowl/xref/tab_digraph1.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 3.7.5: A digraph represented as a table of data">Table 3.7.5</a> contains the length of the directed edge <span class="process-math">\((x,y)\)</span> in the intersection of <em class="emphasis">row</em> <span class="process-math">\(x\)</span> and <em class="emphasis">column</em> <span class="process-math">\(y\)</span> in a digraph with vertex set <span class="process-math">\(\{a,b,c,d,e,f\}\text{.}\)</span> For example, <span class="process-math">\(w(b,d)=21\text{.}\)</span> (On the other hand, <span class="process-math">\(w(d,b)=10\text{.}\)</span>) Use this data and Dijkstra’s algorithm to find the distance from <span class="process-math">\(a\)</span> to each of the other vertices and a directed path of that length from <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="table table-like" id="tab_digraph1"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A digraph represented as a table of data<div class="autopermalink" data-description="Table 3.7.5: A digraph represented as a table of data"><a href="#tab_digraph1" title="Copy heading and permalink for Table 3.7.5: A digraph represented as a table of data" aria-label="Copy heading and permalink for Table 3.7.5: A digraph represented as a table of data">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b1 r1 l0 t0 lines"><span class="process-math">\(w\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines">43</td>
+<td class="l m b0 r0 l0 t0 lines">79</td>
+<td class="l m b0 r0 l0 t0 lines">35</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">93</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">18</td>
+<td class="l m b0 r0 l0 t0 lines">21</td>
+<td class="l m b0 r0 l0 t0 lines">60</td>
+<td class="l m b0 r0 l0 t0 lines">33</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">17</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">37</td>
+<td class="l m b0 r0 l0 t0 lines">50</td>
+<td class="l m b0 r0 l0 t0 lines">30</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">85</td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">91</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">17</td>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">28</td>
+<td class="l m b0 r0 l0 t0 lines">47</td>
+<td class="l m b0 r0 l0 t0 lines">39</td>
+<td class="l m b0 r0 l0 t0 lines">14</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">108</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">31</td>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines">29</td>
+<td class="l m b0 r0 l0 t0 lines">73</td>
+<td class="l m b0 r0 l0 t0 lines">20</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+</tr>
+</table></div></figure><div class="autopermalink" data-description="Exercise 3.7.12"><a href="#s_graphalgorithms_exercises-12" title="Copy heading and permalink for Exercise 3.7.12" aria-label="Copy heading and permalink for Exercise 3.7.12">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-13"><h3 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-13-1-1">Use Dijkstra’s algorithm to find the distance from <span class="process-math">\(a\)</span> to each other vertex in the digraph shown in <a href="s_graphalgorithms_exercises.html#fig_graphalgorithms_dijkstra_ex2" class="xref" data-knowl="./knowl/xref/fig_graphalgorithms_dijkstra_ex2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.7.6">Figure 3.7.6</a> and a directed path of that length.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig_graphalgorithms_dijkstra_ex2"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/images/dijkstra_ex2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A directed graph<div class="autopermalink" data-description="Figure 3.7.6"><a href="#fig_graphalgorithms_dijkstra_ex2" title="Copy heading and permalink for Figure 3.7.6" aria-label="Copy heading and permalink for Figure 3.7.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 3.7.13"><a href="#s_graphalgorithms_exercises-13" title="Copy heading and permalink for Exercise 3.7.13" aria-label="Copy heading and permalink for Exercise 3.7.13">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-14"><h3 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-14-1-1">
+<a href="s_graphalgorithms_exercises.html#tab_digraph2" class="xref" data-knowl="./knowl/xref/tab_digraph2.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 3.7.7: A digraph represented as a table of data">Table 3.7.7</a> contains the length of the directed edge <span class="process-math">\((x,y)\)</span> in the intersection of <em class="emphasis">row</em> <span class="process-math">\(x\)</span> and <em class="emphasis">column</em> <span class="process-math">\(y\)</span> in a digraph with vertex set <span class="process-math">\(\{a,b,c,d,e,f\}\text{.}\)</span> For example, <span class="process-math">\(w(b,d)=47\text{.}\)</span> (On the other hand, <span class="process-math">\(w(d,b)=6\text{.}\)</span>) Use this data and Dijkstra’s algorithm to find the distance from <span class="process-math">\(a\)</span> to each of the other vertices and a directed path of that length from <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-14-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="table table-like" id="tab_digraph2"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.7.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A digraph represented as a table of data<div class="autopermalink" data-description="Table 3.7.7: A digraph represented as a table of data"><a href="#tab_digraph2" title="Copy heading and permalink for Table 3.7.7: A digraph represented as a table of data" aria-label="Copy heading and permalink for Table 3.7.7: A digraph represented as a table of data">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b1 r1 l0 t0 lines"><span class="process-math">\(w\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines">17</td>
+<td class="l m b0 r0 l0 t0 lines">55</td>
+<td class="l m b0 r0 l0 t0 lines">83</td>
+<td class="l m b0 r0 l0 t0 lines">42</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">14</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">13</td>
+<td class="l m b0 r0 l0 t0 lines">47</td>
+<td class="l m b0 r0 l0 t0 lines">27</td>
+<td class="l m b0 r0 l0 t0 lines">17</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">37</td>
+<td class="l m b0 r0 l0 t0 lines">42</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">16</td>
+<td class="l m b0 r0 l0 t0 lines">93</td>
+<td class="l m b0 r0 l0 t0 lines">28</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">32</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">84</td>
+<td class="l m b0 r0 l0 t0 lines">19</td>
+<td class="l m b0 r0 l0 t0 lines">42</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">45</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">36</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">76</td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">17</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+</tr>
+</table></div></figure><div class="autopermalink" data-description="Exercise 3.7.14"><a href="#s_graphalgorithms_exercises-14" title="Copy heading and permalink for Exercise 3.7.14" aria-label="Copy heading and permalink for Exercise 3.7.14">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-15"><h3 class="heading"><span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="s_graphalgorithms_exercises-15-1-1">Give an example of a digraph having an <em class="emphasis">undirected</em> path between each pair of vertices, but having a root vertex <span class="process-math">\(r\)</span> so that Dijkstra’s algorithm cannot find a path of finite length from <span class="process-math">\(r\)</span> to some vertex <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-15-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.15"><a href="#s_graphalgorithms_exercises-15" title="Copy heading and permalink for Exercise 3.7.15" aria-label="Copy heading and permalink for Exercise 3.7.15">🔗</a></div></article><article class="exercise exercise-like" id="s_graphalgorithms_exercises-16"><h3 class="heading"><span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para logical" id="s_graphalgorithms_exercises-16-1-1">
+<div class="para">Notice that in our discussion of Dijkstra’s algorithm, we required that the edge weights be nonnegative. If the edge weights are lengths and meant to model distance, this makes perfect sense. However, in some cases, it might be reasonable to allow negative edge weights. For example, suppose that a positive weight means there is a cost to travel along the directed edge while a negative edge weight means that you make money for traveling along the directed edge. In this case, a directed path with positive total weight results in paying out to travel it, while one with negative total weight results in a profit.</div>
+<ol class="lower-alpha lower-alpha-level-1" id="s_graphalgorithms_exercises-16-1-1-1">
+<li id="s_graphalgorithms_exercises-16-1-1-1-1">
+<div class="para" id="s_graphalgorithms_exercises-16-1-1-1-1-1">Give an example to show that Dijkstra’s algorithm does not always find the path of minimum total weight when negative edge weights are allowed.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-16-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.16.a"><a href="#s_graphalgorithms_exercises-16-1-1-1-1" title="Copy heading and permalink for Item 3.7.16.a" aria-label="Copy heading and permalink for Item 3.7.16.a">🔗</a></div>
+</li>
+<li id="s_graphalgorithms_exercises-16-1-1-1-2">
+<div class="para" id="s_graphalgorithms_exercises-16-1-1-1-2-1">Bob and Xing are considering this situation, and Bob suggests that a little modification to the algorithm should solve the problem. He says that if there are negative weights, they just have to find the smallest (i.e., most negative weight) and add the absolute value of that weight to every directed edge. For example, if <span class="process-math">\(w(x,y)\geq -10\)</span> for every directed edge <span class="process-math">\((x,y)\text{,}\)</span> Bob is suggesting that they add <span class="process-math">\(10\)</span> to every edge weight. Xing is skeptical, and for good reason. Give an example to show why Bob’s modification won’t work.<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-16-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.7.16.b"><a href="#s_graphalgorithms_exercises-16-1-1-1-2" title="Copy heading and permalink for Item 3.7.16.b" aria-label="Copy heading and permalink for Item 3.7.16.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_graphalgorithms_exercises-16-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.7.16"><a href="#s_graphalgorithms_exercises-16" title="Copy heading and permalink for Exercise 3.7.16" aria-label="Copy heading and permalink for Exercise 3.7.16">🔗</a></div></article><div class="autopermalink" data-description="Exercises 3.7"><a href="#s_graphalgorithms_exercises" title="Copy heading and permalink for Exercises 3.7" aria-label="Copy heading and permalink for Exercises 3.7">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_graphalgorithms_traveling-salesperson.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch_graphs_on_surfaces.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

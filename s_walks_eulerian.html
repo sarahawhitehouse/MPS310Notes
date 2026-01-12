@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Eulerian Walks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MPS310: Graph Theory">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.8';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.991c135ccf182bf5.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1c010553c35c544c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.677a75a9120449ff.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="MPS310.html"><span class="title">MPS310: Graph Theory</span></a></h1>
+<p class="byline"></p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_walks_basics.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_walks.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_walks_hamiltonian.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\set}[1]{\{1,2,\dotsc,#1\,\}}
+    \newcommand{\ints}{\mathbb{Z}}
+    \newcommand{\posints}{\mathbb{N}}
+    \newcommand{\rats}{\mathbb{Q}}
+    \newcommand{\reals}{\mathbb{R}}
+    \newcommand{\complexes}{\mathbb{C}}
+    \newcommand{\twospace}{\mathbb{R}^2}
+    \newcommand{\threepace}{\mathbb{R}^3}
+    \newcommand{\dspace}{\mathbb{R}^d}
+    \newcommand{\nni}{\mathbb{N}_0}
+    \newcommand{\nonnegints}{\mathbb{N}_0}
+    \newcommand{\dom}{\operatorname{dom}}
+    \newcommand{\ran}{\operatorname{ran}}
+    \newcommand{\prob}{\operatorname{prob}}
+    \newcommand{\Prob}{\operatorname{Prob}}
+    \newcommand{\height}{\operatorname{height}}
+    \newcommand{\width}{\operatorname{width}}
+    \newcommand{\length}{\operatorname{length}}
+    \newcommand{\crit}{\operatorname{crit}}
+    \newcommand{\inc}{\operatorname{inc}}
+    \newcommand{\HP}{\mathbf{H_P}}
+    \newcommand{\HCP}{\mathbf{H^c_P}}
+    \newcommand{\GP}{\mathbf{G_P}}
+    \newcommand{\GQ}{\mathbf{G_Q}}
+    \newcommand{\AG}{\mathbf{A_G}}
+    \newcommand{\GCP}{\mathbf{G^c_P}}
+    \newcommand{\PXP}{\mathbf{P}=(X,P)}
+    \newcommand{\QYQ}{\mathbf{Q}=(Y,Q)}
+    \newcommand{\GVE}{\mathbf{G}=(V,E)}
+    \newcommand{\HWF}{\mathbf{H}=(W,F)}
+    \newcommand{\bfC}{\mathbf{C}}
+    \newcommand{\bfG}{\mathbf{G}}
+    \newcommand{\bfH}{\mathbf{H}}
+    \newcommand{\bfF}{\mathbf{F}}
+    \newcommand{\bfI}{\mathbf{I}}
+    \newcommand{\bfK}{\mathbf{K}}
+    \newcommand{\bfP}{\mathbf{P}}
+    \newcommand{\bfQ}{\mathbf{Q}}
+    \newcommand{\bfR}{\mathbf{R}}
+    \newcommand{\bfS}{\mathbf{S}}
+    \newcommand{\bfT}{\mathbf{T}}
+    \newcommand{\bfNP}{\mathbf{NP}}
+    \newcommand{\bftwo}{\mathbf{2}}
+    \newcommand{\cgA}{\mathcal{A}}
+    \newcommand{\cgB}{\mathcal{B}}
+    \newcommand{\cgC}{\mathcal{C}}
+    \newcommand{\cgD}{\mathcal{D}}
+    \newcommand{\cgE}{\mathcal{E}}
+    \newcommand{\cgF}{\mathcal{F}}
+    \newcommand{\cgG}{\mathcal{G}}
+    \newcommand{\cgM}{\mathcal{M}}
+    \newcommand{\cgN}{\mathcal{N}}
+    \newcommand{\cgP}{\mathcal{P}}
+    \newcommand{\cgR}{\mathcal{R}}
+    \newcommand{\cgS}{\mathcal{S}}
+    \newcommand{\bfn}{\mathbf{n}}
+    \newcommand{\bfm}{\mathbf{m}}
+    \newcommand{\bfk}{\mathbf{k}}
+    \newcommand{\bfs}{\mathbf{s}}
+    \newcommand{\bijection}{\xrightarrow[\text{onto}]{\text{$1$--$1$}}}
+    \newcommand{\injection}{\xrightarrow[]{\text{$1$--$1$}}}
+    \newcommand{\surjection}{\xrightarrow[\text{onto}]{}}
+    \newcommand{\nin}{\not\in}
+    \newcommand{\prufer}{\mbox{prüfer}}
+    \DeclareMathOperator{\fix}{fix}
+    \DeclareMathOperator{\stab}{stab}
+    \DeclareMathOperator{\var}{var}
+    \newcommand{\inv}{^{-1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="MPS310-2.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_intro.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_firstlook.html" class="internal"><span class="codenumber">1.1</span> <span class="title">A first look at graphs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_firstlook.html#s_intro_firstlook-2" class="internal"><span class="codenumber">1.1.1</span> <span class="title">The idea of a graph</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_firstlook.html#s_intro_firstlook-3" class="internal"><span class="codenumber">1.1.2</span> <span class="title">The formal definition of a graph</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_firstlook.html#s_intro_firstlook-4" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Basic examples and concepts</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_degrees.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Degree and handshaking</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_degrees.html#s_intro_degrees-2" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Definition of degree</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_degrees.html#s_intro_degrees-3" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Extended example: Chemistry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_degrees.html#s_intro_degrees-4" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Handshaking lemma and first applications</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_isomorphisms.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Graph Isomorphisms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_isomorphisms.html#s_intro_isomorphisms-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Isomorphic graphs</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_isomorphisms.html#s_intro_isomorphisms-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Heuristics for showing graphs are or aren’t isomorphic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_isomorphisms.html#s_intro_isomorphisms-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Cultural Literacy: The Graph Isomorphism Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_instantinsanity.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Instant Insanity</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-3" class="internal"><span class="codenumber">1.4.1</span> <span class="title">A puzzle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-4" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Enter graph theory</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-5" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Proving that our cubes were impossible</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_instantinsanity.html#s_intro_instantinsanity-6" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Other cube sets</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_intro_trees.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Trees</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_trees.html#s_intro_trees-3" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Basics on trees</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_trees.html#s_intro_trees-4" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Leaves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_intro_trees.html#s_intro_trees-5" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Trees in Chemistry</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_intro_exercises.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_walks.html" class="internal"><span class="codenumber">2</span> <span class="title">Walks</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_walks_basics.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Walks: the basics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_basics.html#s_walks_basics-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Walks and connectedness</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_basics.html#s_walks_basics-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Types of Walks</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="s_walks_eulerian.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Eulerian Walks</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_eulerian.html#s_walks_eulerian-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The bridges of Konigsburg</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_eulerian.html#s_walks_eulerian-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Eulerian Walks: definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_walks_eulerian.html#s_walks_eulerian-5" class="internal"><span class="codenumber">2.2.3</span> <span class="title">A digression on proofs, formality, and intuition</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_walks_hamiltonian.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Hamiltonian cycles</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_walks_exercises.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_algorithms.html" class="internal"><span class="codenumber">3</span> <span class="title">Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_graphalgorithms_prufer.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Prüfer Codes</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Minimum Weight Spanning Trees</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#s_graphalgorithms_min-wt-span-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Preliminaries</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#s_graphalgorithms_min-wt-span-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Kruskal’s Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#alg_prim" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Prim’s Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_min-wt-span.html#s_graphalgorithms_min-wt-span-6" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Comments on Efficiency</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_graphalgorithms_digraphs.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Digraphs</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Dijkstra’s Algorithm for Shortest Paths</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html#s_graphalgorithms_shortest-paths-3" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Description of the Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html#s_graphalgorithms_shortest-paths-4" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Example of Dijkstra’s Algorithm</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_shortest-paths.html#s_graphalgorithms_shortest-paths-5" class="internal"><span class="codenumber">3.4.3</span> <span class="title">The Correctness of Dijkstra’s Algorithm</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Algorithm for Longest Paths</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-motivation" class="internal"><span class="codenumber">3.5.1</span> <span class="title"></span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-motivation-5" class="internal"><span class="codenumber">3.5.1.1</span> <span class="title">Our running example</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Longest Path Algorithm</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm-3" class="internal"><span class="codenumber">3.5.2.1</span> <span class="title">Topolgical sort</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm-4" class="internal"><span class="codenumber">3.5.2.2</span> <span class="title">The Algorithm</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_graphalgorithms_longest-paths.html#subs_graphalgorithms_longest-path-algorithm-5" class="internal"><span class="codenumber">3.5.2.3</span> <span class="title">Critical path analysis</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html" class="internal"><span class="codenumber">3.6</span> <span class="title">The Traveling Salesperson Problem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html#subs_graphalgorithms_tsp_intro" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Introduction to the Traveling Salesperson Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html#subs_graphalgorithms_tsp_upper" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Finding upper bounds to the TSP</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphalgorithms_traveling-salesperson.html#subs_graphalgorithms_tsp_lower" class="internal"><span class="codenumber">3.6.3</span> <span class="title">A lower point for TSP</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_graphalgorithms_exercises.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_graphs_on_surfaces.html" class="internal"><span class="codenumber">4</span> <span class="title">Graphs on Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_intro.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to Graphs on Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_intro.html#s_graphs_on_surfaces_intro-3" class="internal"><span class="codenumber">4.1.1</span> <span class="title">The Utilities Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_intro.html#s_graphs_on_surfaces_intro-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title"></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_planarity_algorithm.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The planarity algorithm for Hamiltonian graphs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_planarity_algorithm.html#s_graphs_on_surfaces_planarity_algorithm-3" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Stereographic Projection and Unnecessary cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_planarity_algorithm.html#s_graphs_on_surfaces_planarity_algorithm-4" class="internal"><span class="codenumber">4.2.2</span> <span class="title">The planarity algorithm</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Kuratowski’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html#s_graphs_on_surfaces_Kuratowski-3" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Planarity, subgraphs, and subdivisions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html#s_graphs_on_surfaces_Kuratowski-4" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Kuratowski’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_Kuratowski.html#s_graphs_on_surfaces_Kuratowski-5" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Applying Kuratowski’s Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Drawing Graphs on Other surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html#s_graphs_on_surfaces_other_surfaces-3" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Motivation and culture: Manifolds and Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html#s_graphs_on_surfaces_other_surfaces-4" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Graphs on the Torus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_other_surfaces.html#s_graphs_on_surfaces_other_surfaces-5" class="internal"><span class="codenumber">4.4.3</span> <span class="title">Möbius strip</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_graphs_on_surfaces_euler.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Euler’s Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_euler.html#s_graphs_on_surfaces_euler-3" class="internal"><span class="codenumber">4.5.1</span> <span class="title">Counting faces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_graphs_on_surfaces_euler.html#s_graphs_on_surfaces_euler-4" class="internal"><span class="codenumber">4.5.2</span> <span class="title">Applications of Euler’s theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_graphs_on_surfaces_exercises.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_colourings.html" class="internal"><span class="codenumber">5</span> <span class="title">Colourings</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chromatic_number.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Chromatic number</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_chromatic_index.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Chromatic index and applications</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Introduction to the chromatic polynomial</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html#s_chromatic_polynomial_intro-3" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Definition and examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html#s_chromatic_polynomial_intro-4" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Gluing</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_intro.html#s_chromatic_polynomial_intro-5" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Case by case analysis</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_chromatic_polynomial_more.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Chromatic Polynomial continued</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_more.html#s_chromatic_polynomial_more-3" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Deletion-Contraction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_chromatic_polynomial_more.html#s_chromatic_polynomial_more-4" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Chromatic polynomial is a polynomial</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="s_chromatic_exercises.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_walks_eulerian"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eulerian Walks</span>
+</h2>
+<div class="para" id="s_walks_eulerian-2-1">In this section we introduce the problem of Eulerian walks, often hailed as the origins of graph theroy. We will see that determining whether or not a walk has an Eulerian circuit will turn out to be easy; in contrast, the problem of determining whether or not one has a Hamiltonian walk, which seems very similar, will turn out to be very difficult.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="s_walks_eulerian-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The bridges of Konigsburg</span>
+</h3>
+<div class="para" id="s_walks_eulerian-3-2">The city of Konigsberg (now Kaliningrad) was built on two sides of a river, near the site of two large islands.   The four sectors of the city were connected by seven bridges, as follows (picture from Wikipedia):<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="bridges_konigsberg"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/Konigsberg_bridges.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The city of Konigsburg in Euler’s time<div class="autopermalink" data-description="Figure 2.2.1"><a href="#bridges_konigsberg" title="Copy heading and permalink for Figure 2.2.1" aria-label="Copy heading and permalink for Figure 2.2.1">🔗</a></div></figcaption></figure><div class="para" id="s_walks_eulerian-3-4">A group of friends enjoyed strolling through the city, and created a game: could they take a walk in the city, crossing every bridge exactly once, and return to where they started from? They couldn’t find such a walk, but they couldn’t prove such a walk wasn’t possible, and so they wrote to the mathematician Euler, who proved that such a walk is not possible.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 2.2.1: The bridges of Konigsburg"><a href="#s_walks_eulerian-3" title="Copy heading and permalink for Subsection 2.2.1: The bridges of Konigsburg" aria-label="Copy heading and permalink for Subsection 2.2.1: The bridges of Konigsburg">🔗</a></div></section><section class="subsection" id="s_walks_eulerian-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eulerian Walks: definitions</span>
+</h3>
+<div class="para" id="s_walks_eulerian-4-2">We will formalize the problem presented by the citizens of Konigsburg in graph theory, which will immediately present an obvious generalization.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-4-3">We may represent the city of Konigsburg as a graph <span class="process-math">\(\Gamma_K\text{;}\)</span> the four sectors of town will be the vertices of <span class="process-math">\(\Gamma_K\text{,}\)</span> and edges between vertices will represent the bridges (hence, this will not be a simple graph).<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-4-4">Then, the question reduces to finding a closed walk in the graph that will uses every edge <em class="emphasis">exactly</em> once. In particular, this walk will not use any edge more than once and hence will be a trail.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="s_walks_eulerian-4-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="autopermalink" data-description="Checkpoint 2.2.2"><a href="#s_walks_eulerian-4-5" title="Copy heading and permalink for Checkpoint 2.2.2" aria-label="Copy heading and permalink for Checkpoint 2.2.2">🔗</a></div></article></details><article class="definition definition-like" id="s_walks_eulerian-4-6"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="s_walks_eulerian-4-6-1">Let <span class="process-math">\(G\)</span> be a graph.  An <em class="emphasis">Eulerian cycle</em> is a closed walk that uses every edge of <span class="process-math">\(G\)</span> exactly once.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-4-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-4-6-2">If <span class="process-math">\(G\)</span> has an Eulerian cycle, we say that <span class="process-math">\(G\)</span> is <em class="emphasis">Eulerian</em>.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-4-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-4-6-3">If we weaken the requirement, and do not require the walk to be closed, we call it an Euler path, and if a graph <span class="process-math">\(G\)</span> has an Eulerian path but not an Eulerian cycle, we say <span class="process-math">\(G\)</span> is <em class="emphasis">semi-Eulerian</em><div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-4-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.2.3"><a href="#s_walks_eulerian-4-6" title="Copy heading and permalink for Definition 2.2.3" aria-label="Copy heading and permalink for Definition 2.2.3">🔗</a></div></article><div class="para" id="s_walks_eulerian-4-7">The question of the walkers of Konigsburg is then equivalent to asking if the graph <span class="process-math">\(\Gamma_K\)</span> is Eulerian. The birth of graph theory is usually marked to the following theorem, proven by Euler:<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_eulerian"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="thm_eulerian-1">A connected graph <span class="process-math">\(\Gamma\)</span> is Eulerian if and only if every vertex of <span class="process-math">\(\Gamma\)</span> has even degree<div class="autopermalink" data-description="Paragraph"><a href="#thm_eulerian-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.2.4"><a href="#thm_eulerian" title="Copy heading and permalink for Theorem 2.2.4" aria-label="Copy heading and permalink for Theorem 2.2.4">🔗</a></div></article><div class="autopermalink" data-description="Subsection 2.2.2: Eulerian Walks: definitions"><a href="#s_walks_eulerian-4" title="Copy heading and permalink for Subsection 2.2.2: Eulerian Walks: definitions" aria-label="Copy heading and permalink for Subsection 2.2.2: Eulerian Walks: definitions">🔗</a></div></section><section class="subsection" id="s_walks_eulerian-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A digression on proofs, formality, and intuition</span>
+</h3>
+<div class="para" id="s_walks_eulerian-5-2">Before discussing the proof of <a href="s_walks_eulerian.html#thm_eulerian" class="xref" data-knowl="./knowl/xref/thm_eulerian.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.4">Theorem 2.2.4</a>, it’s worth a little meta-discussion about proofs, intuition vs. rigor, and mathematics as a whole.  The proofing <a href="s_walks_eulerian.html#thm_eulerian" class="xref" data-knowl="./knowl/xref/thm_eulerian.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.4">Theorem 2.2.4</a> is a common exam question, and you may not be used to studying for reproducing proofs on exams.  Certainly one way to prepare for such a question is to memorize the proof word for word.  There doesn’t seem to be a lot of obvious value in this approach, however.  So why ask these questions on the exam? And this opens the door to more philosophical questions as well: how should we think/interact with proofs anyway?  What’s the point of it all?<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-3">Usually in books or in lectures, proofs are only given in slick, elegant, polished formal versions.  There are many reasons for this: there’s a certain beauty to it; it’s important to write it out formally to make sure it’s all correct; there’s only so much time in lectures, and brevity is a virtue anyway.  People turn away from long works, and the main point of a proof, after all, is to prove something, and it’s easier to check that it’s all correct if it’s shorter.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-4">But there’s a very real downside to this presentation of proofs as the finished, elegant thing.  Most important to me is that the way mathematics is written formally on the page is very different from how it lives actively in our brains (or my brain, at least).  Nobody (or certainly very few people) comes up with proofs in the elegant short start to finish way that they’re written.  Typically, there’s a mess of chaotic half ideas that slowly get refined down to the written proof that you see.  But often the mess is the exciting part,<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-5">We sketch a few of the main ideas of the proof in an informal setting now, before giving a complete formal proof.  To learn this proof for the exam, you should have this informal picture in your head, and perhaps a skeleton outline of the main formal points that need to be shown.  You shouldn’t try to memorize the formal proof word for word like a poem; instead, practice expanding out from the informal ideas/skeleton proof to the full formal proof on your own a few times.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-6">It is much easier to see that if a graph <span class="process-math">\(G\)</span> <em class="emphasis">is</em> Eulerian, then every vertex has even degree.  Suppose we wanted to show that a given vertex <span class="process-math">\(v\)</span> was Eulerian; let us stand at the vertex <span class="process-math">\(v\)</span> and have a friend trace out the Eulerian cycle.  We’ll wait for a while, and then the friend will appear at <span class="process-math">\(v\)</span> along some edge <span class="process-math">\(e_1\text{,}\)</span> and then live along some different edge <span class="process-math">\(e_2\text{.}\)</span>  We’ll wait some more, and they’ll reappear coming from new edge <span class="process-math">\(e_3\text{,}\)</span> and then leave again along some edge <span class="process-math">\(e_4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-7">This will continue until they have arrived or left by every edge that hits <span class="process-math">\(v\text{.}\)</span>  But every time they visit <span class="process-math">\(v\text{,}\)</span> they must arrive by one edge, and leave by another one, and hence every visit uses up an even number of edges, and so the degree <span class="process-math">\(d(v)\)</span> of <span class="process-math">\(v\)</span> must be even.  But there was nothing special about the vertex <span class="process-math">\(v\text{,}\)</span> and hence the degree of every vertex must be even.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-8">To argue the other way is more difficult; before trying to show there’s a closed path that uses all the edges, let’s just construct <em class="emphasis">any</em> closed path.  We pick some vertex <span class="process-math">\(v_0\)</span> to start at, and just randomly choose an edge out of <span class="process-math">\(v_0\text{,}\)</span> to some other vertex <span class="process-math">\(v_1\text{,}\)</span> and from there randomly choosing any edge we haven’t used yet to another vertex <span class="process-math">\(v_n\text{,}\)</span> and so on.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-9">To construct a closed walk, we’d like to show we eventually have to return to <span class="process-math">\(v_0\text{.}\)</span>  We’re only working with finite graphs, so our walk can’t continue forever; the only possibility we have to rule out is that we reach some vertex <span class="process-math">\(v_n\)</span> and find that we have already used every vertex incident to <span class="process-math">\(v_n\text{.}\)</span>  But as we saw before, the path will pair up the edges incident to each vertex as an arriving edge and a departing edge, and we know the degree of <span class="process-math">\(v_n\)</span> is even.  If the path has already visited <span class="process-math">\(v_n k\)</span> times, then we’ll have used <span class="process-math">\(2k\)</span> of the edges incident to it; when we arrive for the <span class="process-math">\(k+1\)</span>st time we’ll use one edge, and in all we’ll have used <span class="process-math">\(2k+1\)</span> edges, an odd number; since the degree of <span class="process-math">\(v_n\)</span> is even there must be at least one edge we haven’t used to exit by.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-10">You might worry that the argument above suggests we can carry on the walk forever, which we obviously can’t do since the graph is finite, but the argument above doesn’t work for <span class="process-math">\(v_0\text{:}\)</span> when we start the path out at <span class="process-math">\(v_0\text{,}\)</span> we haven’t had to arrive there, and so the edge we initially leave by is not paired with anything.  Therefore, if <span class="process-math">\(\Gamma\)</span> has all vertices with even degree, and we walk randomly for as long as we can, we’ll always get stuck at our starting vertex.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-11">Hence, we have shown that if <span class="process-math">\(\Gamma\)</span> is a graph with all vertices having even degree, there will exist some closed walk in <span class="process-math">\(\Gamma\text{,}\)</span> but the walk we created was chosen randomly, and there’s no guarantee it will include all the edge of <span class="process-math">\(\Gamma\)</span> -- in all likelihood, it won’t.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-12">But if we look at the edges we haven’t used, they will form a simpler graph. <span class="process-math">\(\Gamma^\prime\text{.}\)</span>  There’s no reason for <span class="process-math">\(\Gamma^\prime\)</span> to be connected, but it’s not too hard to see that every vertex of <span class="process-math">\(\Gamma^\prime\)</span> will still have even degree: in <span class="process-math">\(\Gamma\)</span> every vertex had even degree, and we saw in our first proof that a closed walk that doesn’t repeat edges uses up an even number of edges at each vertex, and so we’ll have an even number of edges left at each point.  Thus, each connected piece of <span class="process-math">\(\Gamma^\prime\)</span> satisfies the hypothesis of the problem, and is simpler, so we can try to find a closed walk on each of connected piece of <span class="process-math">\(\Gamma^\prime\text{,}\)</span> and then "stitch" the results together to get a walk that uses all the pieces. In the formal proof, this process is best captured using induction, and we’ll save the complete description until then, but for now we illustrate the process in an example<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_walkdrawing_stupid"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig_walkdrawing_stupid-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Example of a walk<div class="autopermalink" data-description="Figure 2.2.5"><a href="#fig_walkdrawing_stupid" title="Copy heading and permalink for Figure 2.2.5" aria-label="Copy heading and permalink for Figure 2.2.5">🔗</a></div></figcaption></figure><details id="s_walks_eulerian-5-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="s_walks_eulerian-5-14-1">Let’s see an example of how the process of finding an Eulerian path works for the graph <span class="process-math">\(\Gamma\)</span> in Figure below.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_euler_example"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig_euler_example-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A graph <span class="process-math">\(\Gamma\)</span><div class="autopermalink" data-description="Figure 2.2.7"><a href="#fig_euler_example" title="Copy heading and permalink for Figure 2.2.7" aria-label="Copy heading and permalink for Figure 2.2.7">🔗</a></div></figcaption></figure><div class="para" id="s_walks_eulerian-5-14-3">It probably isn’t hard to immediately find an Eulerian cycle for <span class="process-math">\(\Gamma\)</span> just by examination, but to illustrate the algorithm to begin with, we are going to deliberately choose a cycle that doesn’t use every edge, the cycle aeijgba show in the next figure:<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-14-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_euler_example_next"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig_euler_example_next-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Initializing with a closed walk in <span class="process-math">\(\Gamma\)</span><div class="autopermalink" data-description="Figure 2.2.8"><a href="#fig_euler_example_next" title="Copy heading and permalink for Figure 2.2.8" aria-label="Copy heading and permalink for Figure 2.2.8">🔗</a></div></figcaption></figure><div class="para" id="s_walks_eulerian-5-14-5">To extend our cycle to an Eulerian cycle, we delete all the edges used in the graph, and study the remaining graph.  In our case, this graph has two connected components, a four cycle and a three cycle.  Both of these are cycles themselves, they’re trivially Eulerian, -- in general, it might take some work to find an Eulerian cycle for the components, but won’t be too hard as the graph will be smaller.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-14-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_euler_example_third"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig_euler_example_third-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Parts of <span class="process-math">\(\Gamma\)</span> missed by our walk<div class="autopermalink" data-description="Figure 2.2.9"><a href="#fig_euler_example_third" title="Copy heading and permalink for Figure 2.2.9" aria-label="Copy heading and permalink for Figure 2.2.9">🔗</a></div></figcaption></figure><div class="para" id="s_walks_eulerian-5-14-7">Finally, we stitch our Eulerian paths together.  We follow our initial cycle that wasn’t an Eulerian cycle, and the first time we hit a vertex that’s in one of the other cycles, we insert that cycle in before we continue along our original path.  In our example, our original cycle was aeijgba.  a is not eitehr of the other components, but e is in the four cycle, so before we continue on our original cycle to i, we insert the four cycle ehije, giving aehije.  We now continue along our original cycle, adding ei, ij, jg, until we reach a vertex g that’s in one of the added cycles, which we then insert, giving aehijeijgcdg as our cycle so far.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-14-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-14-8">Continuing this process, we find aehijeijgcdgba as an Eulerian cycle.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-14-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_euler_example_last"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig_euler_example_last-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Eulerian cycle stitched together<div class="autopermalink" data-description="Figure 2.2.10"><a href="#fig_euler_example_last" title="Copy heading and permalink for Figure 2.2.10" aria-label="Copy heading and permalink for Figure 2.2.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 2.2.6"><a href="#s_walks_eulerian-5-14" title="Copy heading and permalink for Example 2.2.6" aria-label="Copy heading and permalink for Example 2.2.6">🔗</a></div></article></details><details id="s_walks_eulerian-5-15" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="s_walks_eulerian-5-15-1">We first show that if <span class="process-math">\(\bfG\)</span> is Eulerian, then every vertex <span class="process-math">\(v\in\bfG\)</span> has even degree.  For suppose the Eulerian cycle visits the vertex <span class="process-math">\(v k\)</span> times.  Each time it visits <span class="process-math">\(v\)</span> it must arrive by one edge, and leave by a different edge. Since the walk is Eulerian, every edge adjacent to <span class="process-math">\(v\)</span> will be used exactly once by the walk, and so we see that <span class="process-math">\(d(v)=2k\)</span> as desired.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-15-2">Now we suppose that <span class="process-math">\(\bfG\)</span> is connected and that every vertex has even degree.  We will induct on the number of edges of <span class="process-math">\(\bfG\text{.}\)</span>  If it has no edges, then the theorem is vacuously true -- we can just take the empty walk.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-15-3">For the inductive step, suppose that <span class="process-math">\(\bfG\)</span> is connected with <span class="process-math">\(m\)</span> edges, and that every vertex of <span class="process-math">\(\bfG\)</span> has even degree.  Further assume, for the inductive hypothesis, that every graph <span class="process-math">\(\bfH\)</span> with these properties and <em class="emphasis">less</em> than <span class="process-math">\(m\)</span> edges is Eulerian.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-15-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-15-4">Suppose for now that we can find <em class="emphasis">a</em> closed walk <span class="process-math">\(w\)</span> in <span class="process-math">\(\bfG\)</span> that doesn’t repeat any edges -- we will justify that this at the end of the proof.  If the closed walk <span class="process-math">\(w\)</span> uses all the edges of <span class="process-math">\(\bfG\text{,}\)</span> then <span class="process-math">\(w\)</span> is an Eulerian cycle, and we are done.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-15-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-15-5">If <span class="process-math">\(w\)</span> doesn’t use all the edges of <span class="process-math">\(\bfG\text{,}\)</span> we can delete all the edges used in <span class="process-math">\(w\)</span> and get a graph <span class="process-math">\(\bfG\setminus w\)</span> with fewer than <span class="process-math">\(m\)</span> edges.  Though <span class="process-math">\(\bfG\setminus w\)</span> might not be connected, every vertex in <span class="process-math">\(\bfG\setminus w\)</span> will have even degree, as we’ve subtracted an even number of edges from each vertex that <span class="process-math">\(w\)</span> visits as argued in the first part of the proof.  Thus, by the inductive hypothesis each connected component <span class="process-math">\(\bfG\setminus w\)</span> will have an Eulerian cycle.  Since the <span class="process-math">\(\bfG\)</span> is connected, <span class="process-math">\(w\)</span> must include at least one point from each component of <span class="process-math">\(\bfG\setminus w\text{,}\)</span> and so we can insert the Eulerian walk on the edges of each component of <span class="process-math">\(\bfG\setminus w\)</span> from each component into <span class="process-math">\(w\)</span> when we reach that component, to obtain a closed walk <span class="process-math">\(w^\prime\)</span> that uses all the edges of <span class="process-math">\(\bfG\)</span> exactly once, as desired.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-15-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-15-6">All that remains is to justify that <span class="process-math">\(\bfG\)</span> contains at least one closed walk, given that every vertex has even degree and it contains at least one edge.  We form a walk <span class="process-math">\(w\)</span> by starting at any vertex <span class="process-math">\(v\)</span> and at each step choosing any edge we’ve never traversed before at random as the next step of the walk.  We claim that <span class="process-math">\(w\)</span> must eventually return back to the starting vertex <span class="process-math">\(v\text{.}\)</span>  Since <span class="process-math">\(\bfG\)</span> is finite, and we don’t repeat edges, the only way we could fail to return to <span class="process-math">\(v\)</span> would be if our walk "got stuck" -- that is, at some point we reach a vertex <span class="process-math">\(u\)</span> and find that every edge out of <span class="process-math">\(u\)</span> has already been traversed.  However, we know that <span class="process-math">\(u\)</span> has an even number of edges, and also arguing as in the first paragraph of the proof that every time the walk <span class="process-math">\(w\)</span> visits <span class="process-math">\(u\)</span> it must use up two edges, one for arrival and one for departure.  Hence, when we arrive at <span class="process-math">\(u\)</span> at any time we must have used up an odd number of edges at <span class="process-math">\(u\)</span> -- an even number from all the previous times we have visited <span class="process-math">\(u\text{,}\)</span> plus one more that we just arrived from.  Since <span class="process-math">\(u\)</span> has even degree, there must always be at least one edge available for us to choose from, and so we can never "get stuck" and will eventually reach <span class="process-math">\(w\)</span> again.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-15-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.2.3.1"><a href="#s_walks_eulerian-5-15" title="Copy heading and permalink for Proof 2.2.3.1" aria-label="Copy heading and permalink for Proof 2.2.3.1">🔗</a></div></article></details><article class="remark remark-like" id="s_walks_eulerian-5-16"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="s_walks_eulerian-5-16-1">Note that it does <em class="emphasis">not</em> say: "A graph <span class="process-math">\(\Gamma\)</span> is Eulerian if and only if it is connected and every vertex has even degree." This statement in quotation marks is false, but for "stupid" reasons.  If <span class="process-math">\(\Gamma\)</span> is Eulerian, and <span class="process-math">\(E_n\)</span> is the graph with <span class="process-math">\(n\)</span> vertices wit no edges, then <span class="process-math">\(\Gamma\sqcup E_n\)</span> is Eulerian but not connected.  These are the only examples of such graphs.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 2.2.11"><a href="#s_walks_eulerian-5-16" title="Copy heading and permalink for Remark 2.2.11" aria-label="Copy heading and permalink for Remark 2.2.11">🔗</a></div></article><article class="theorem theorem-like" id="s_walks_eulerian-5-17"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="s_walks_eulerian-5-17-1">A connected graph <span class="process-math">\(\Gamma\)</span> is semi-Eulerian if and only if it has exactly two vertices with odd degree.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 2.2.12"><a href="#s_walks_eulerian-5-17" title="Copy heading and permalink for Theorem 2.2.12" aria-label="Copy heading and permalink for Theorem 2.2.12">🔗</a></div></article><details id="s_walks_eulerian-5-18" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="s_walks_eulerian-5-18-1">A minor modification of our argument for Eulerian graphs shows that the condition is necessary.  Suppose that <span class="process-math">\(\Gamma\)</span> is semi-Eulerian, with Eulerian path <span class="process-math">\(v_0, e_1, v_1,e_2,v_3,\dots,e_n,v_n\text{.}\)</span>  Then at any vertex other than the starting or ending vertices, we can pair the entering and leaving edges up to get an even number of edges.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-18-2">However, at the first vertex <span class="process-math">\(v_0\)</span> the path leaves along <span class="process-math">\(e_1\)</span> the first time but never enters it accordingly, so that <span class="process-math">\(v_0\)</span> has an odd degree; similarly, at <span class="process-math">\(v_n\)</span> the path enters one final time along <span class="process-math">\(e_n\)</span> without leaving, and so <span class="process-math">\(v_n\)</span> also has an odd degree.<div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="s_walks_eulerian-5-18-3">To see the condition is sufficient we could also modify the argument for the Eulerian case slightly, but it is slicker instead to <em class="emphasis">reduce</em> to the Eulerian case.  Suppose that <span class="process-math">\(\Gamma\)</span> is connected, and that vertices <span class="process-math">\(v\)</span> and <span class="process-math">\(w\)</span> have odd degree and all other vertices of <span class="process-math">\(\Gamma\)</span> have even degree.  Then we can construct a new graph <span class="process-math">\(\Gamma^\prime\)</span> by adding an extra edge <span class="process-math">\(e=vw\)</span> to <span class="process-math">\(\Gamma\text{.}\)</span>  Then <span class="process-math">\(\Gamma^\prime\)</span> is connected and every vertex has even degree, and so it has an Eulerian cycle.  Deleting the edge <span class="process-math">\(e\)</span> that we added from this cycle gives an Eulerian path from <span class="process-math">\(v\)</span> to <span class="process-math">\(w\)</span> in <span class="process-math">\(\Gamma\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_walks_eulerian-5-18-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.2.3.2"><a href="#s_walks_eulerian-5-18" title="Copy heading and permalink for Proof 2.2.3.2" aria-label="Copy heading and permalink for Proof 2.2.3.2">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 2.2.3: A digression on proofs, formality, and intuition"><a href="#s_walks_eulerian-5" title="Copy heading and permalink for Subsection 2.2.3: A digression on proofs, formality, and intuition" aria-label="Copy heading and permalink for Subsection 2.2.3: A digression on proofs, formality, and intuition">🔗</a></div></section><div class="autopermalink" data-description="Section 2.2: Eulerian Walks"><a href="#s_walks_eulerian" title="Copy heading and permalink for Section 2.2: Eulerian Walks" aria-label="Copy heading and permalink for Section 2.2: Eulerian Walks">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_walks_basics.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_walks_hamiltonian.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
