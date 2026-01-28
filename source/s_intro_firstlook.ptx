@@ -5,7 +5,7 @@
 <p>First and foremost, you should think of a graph as a certain type of picture, containing dots and lines connecting those dots, like so:</p>
 <figure xml:id="fig_firstgraph"> <caption>A graph</caption>
 <image width="80%">
-<latex-image><![CDATA[\begin{tikzpicture}[scale=.5]
+<latex-image >\begin{tikzpicture}[scale=.5]
 \begin{scope}[every node/.style={circle, thick, draw}]
    \node (A) at (0,0) {A};
    \node (B) at (2,-2) {B};
@@ -16,7 +16,7 @@
  \draw (A)--(B)--(C)--(A);
  \draw (C)--(D)--(B);
  \draw (D)--(E);
-\end{tikzpicture}]]></latex-image></image></figure>
+\end{tikzpicture}</latex-image></image></figure>
 
 <p>We will typically use the letters <m>G, H</m>, or <m>\Gamma</m> (capital Gamma) to denote a graph.  The <q>dots</q> or the graph are called <em>vertices</em> or <em>nodes</em>, and the lines between the dots are called <em>edges</em>. Graphs occur frequently in the <q>real world</q>, and typically how to show how something is connected, with the vertices representing the things and the edges showing connections.  <ul>
 <li><em>Transit networks:</em> The London tube map is a graph, with the vertices representing the stations, and an edge between two stations if the tube goes directly between them.  More generally, rail maps in general are graphs, with vertices stations and edges representing line, and road maps as well, with vertices being cities, and edges being roads.</li>
