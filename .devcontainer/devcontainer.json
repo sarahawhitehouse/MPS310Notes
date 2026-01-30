@@ -60,6 +60,11 @@
   // Configure tool-specific properties.
   "customizations": {
     "codespaces": {
+      "repositories": {
+        "https://github.com/ptwiddle/MPS310Notes": {
+         "permissions": "write-all" 
+        }}
+      }
       "openFiles": ["README.md"]
     },
     "vscode": {
