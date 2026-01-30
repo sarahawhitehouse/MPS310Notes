@@ -61,7 +61,7 @@
   "customizations": {
     "codespaces": {
       "repositories": {
-        "https://github.com/ptwiddle/MPS310Notes": {
+        "https://github.com/sarahawhitehouse/MPS310Notes": {
          "permissions": "write-all" 
         }}
       }
