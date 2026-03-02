@@ -2,7 +2,7 @@
     <title>Introduction to Graphs on Surfaces</title>
 
 
-    <introduction> <p>We begin our study of graphs on surfaces with an old chestnut of a problem, the solution of which we will develop into a more general algorithm.</p>
+    <introduction> <p>We begin our study of graphs on surfaces with an old chestnut of a problem called The Utilities Problem.  We then develop our solution to the Utilities Problem into a more general algorithm that will work for any Hamiltonian graph.</p>
 </introduction>
 <subsection><title>The Utilities Problem</title>
 
@@ -16,7 +16,7 @@
 </subsection>
 <subsection>
 <definition><p>A graph is <em>planar</em> if it can be drawn on a piece of paper so that no edges cross.</p></definition>
-<p>That definition is a bit loose -- for instance, it's left implicit, we're drawing the edges as lines, with the endpoints being the two vertices it connects.  But this will be strong enough for our purposes.</p>
+<p>That definition is a bit loose -- for instance, it's left implicit that we're drawing the edges as lines, with the endpoints being the two vertices it connects.  But this will be strong enough for our purposes.</p>
 
 <p>With this definition in hand, the Utilities Question is asking whether the graph <m>K_{3,3}</m> is planar -- treat the three utilities as red vertices, say, and the three houses as the blue vertices.  This doesn't really help us organize our proof, however. To do that, we will use the basic fact that any circle drawn on the plane has an inside and an outside.</p>
 
