@@ -102,7 +102,7 @@
 
 
 
-<definition><p>The complelement of a simple graph <m>G</m>, which we will denote <m>G^c</m>, and is sometimes written <m>\overline{G}</m>, is the graph with the same vertex set as <m>G</m>, but <m>\{v,w\}\in E(G^c)</m> if and only if <m>\{v,w\}\notin E(G)</m>; that is, there is an edge between <m>v</m> and <m>w</m> in <m>G^c</m> if and only if there is not an edge between <m>v</m> and <m>w</m> in <m>G</m></p></definition>
+<definition><p>The complement of a simple graph <m>G</m>, which we will denote <m>G^c</m>, and is sometimes written <m>\overline{G}</m>, is the graph with the same vertex set as <m>G</m>, but <m>\{v,w\}\in E(G^c)</m> if and only if <m>\{v,w\}\notin E(G)</m>; that is, there is an edge between <m>v</m> and <m>w</m> in <m>G^c</m> if and only if there is not an edge between <m>v</m> and <m>w</m> in <m>G</m>.</p></definition>
 
 <example><p>The empty graph and complete graph are complements of each other; <m>K_n^c=E_n</m></p>
 <p>The path graph <m>P_4</m> and its complement are shown below:</p>
@@ -131,7 +131,7 @@
 ]]></latex-image></image>
 
 </example>
-<p>It commonly occurs that there are two different types of vertices, and the edges only go between vertices of the two types.  For example, we may be modelling a company, and one type of vertices may represent the employees, and another type of vertices could represent the different jobs that need done, with an edge between a worker and a job if the worker is qualified to do that particular job.  We call these graphs <em>bipartite</em>.</p>
+<p>It commonly occurs that there are two different types of vertices, and the edges only go between vertices of the two types.  For example, we may be modelling a company, and one type of vertex may represent the employees, and another type of vertex could represent the different jobs that need done, with an edge between a worker and a job if the worker is qualified to do that particular job.  We call these graphs <em>bipartite</em>.</p>
 
 <definition><p>A graph <m>\bfG</m> is <em>bipartite</em> if its vertices can be coloured red and blue so that every edge goes between a red vertex and a blue vertex.</p></definition>
 
@@ -160,7 +160,7 @@
 </proof>
 </lemma>
 
-<lemma><statement><p>A graph <m>\bfG</m> is bipartite if and only if <m>\bfG</m> has no subgraphs that are isomorphic to <m>C_{2k+1}</m></p></statement>
+<lemma><statement><p>A graph <m>\bfG</m> is bipartite if and only if <m>\bfG</m> has no subgraphs that are isomorphic to <m>C_{2k+1}</m>.</p></statement>
 <proof><p>First, note that if <m>\bfG_2</m> is a subgraph of <m>\bfG_1</m>, and <m>\bfG_1</m> is bipartite, then so is <m>\bfG_2</m>: colouring the vertices of <m>\bfG_1</m> red and blue in particular colours the vertices of <m>\bfG_2</m> as well.  Hence, we see if that <m>\bfG</m> has a subgraph isomorphic to <m>C_{2k_1}</m>, which isn't bipartite by the previous lemma, then <m>\bfG_1</m> can't be bipartite, either.</p>
 
 <p>In the other direction, we assume that <m>\bfG</m> has no subgraphs isomorphic to <m>C_{2k+1}</m>; we need to prove that <m>\bfG</m> is bipartite.  Again, let's try to colour the vertices of <m>\bfG</m> red and blue so that adjancent vertices have different colours.  Choose a vertex <m>v</m> of <m>\bfG</m>, without loss of generality we may assume that <m>v</m> is coloured blue; then all vertices adjacent to <m>v</m> -- i.e., those vertices at distance 1 from <m>v</m> -- are coloured red.  The vertices adjacent to those must be blue, and the ones adjacent to those must be red, alternating out.  This suggests trying to colour all vertices at odd distance from <m>v</m> red, and those vertices at even distance from <m>v</m> blue.  We will show that if this colouring has two vertices of the same colour that are adjacent, then <m>\bfG</m> has an odd cycle.</p>
