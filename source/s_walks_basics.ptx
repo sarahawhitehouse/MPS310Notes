@@ -1,7 +1,7 @@
 <section xmlns:xi="http://www.w3.org/2001/XIncludes" xml:id="s_walks_basics">
 <title>Walks: the basics</title>
 <intro>
-<p>If the edges in a graph <m>\Gamma</m> represent connections between different cities, it is obvious to strart planning longer trips that compose several of these connections.  The notion of a <em>walk</em> formally captures this definition; the formal notions of <em>path</em> and <em>trail</em> further ask that we not double back on ourselves or repeat ourselves in certain formally defined ways.</p>
+<p>If the edges in a graph <m>\Gamma</m> represent connections between different cities, we can start planning longer trips that compose several of these connections.  The notion of a <em>walk</em> formally captures this definition; the formal notions of <em>path</em> and <em>trail</em> further ask that we not double back on ourselves or repeat ourselves in certain formally defined ways.</p>
 
 <p>Once we've done that, we investigate what it means for a graph to be connected or disconnected.</p>
 
@@ -40,9 +40,9 @@
 \end{scope}
 \end{tikzpicture}]]></latex-image></image>
 </figure>
-<p>In the graph shown, the vertices are labelled with letters, and the edges are labelled with numbers, and we have a walk highlighted in red, and with arrowtips drawn on the edges.  Starting from vertex <m>A</m>, we can take edge 6 to vertex <m>D</m>, and then edge 5 to vertex <m>C</m>, edge 5 to vertext <m>F</m>, edge 3 back to vertex <m>D</m>, and finally edge 8 to vertex <m>E</m>. Intuitively,then, a walk strings together several edges that share vertices in between.  Makign that formal, we have the following.</p>
+<p>In the graph shown, the vertices are labelled with letters, and the edges are labelled with numbers, and we have a walk highlighted in red, and with arrowtips drawn on the edges.  Starting from vertex <m>A</m>, we can take edge 6 to vertex <m>D</m>, and then edge 5 to vertex <m>C</m>, edge 5 to vertext <m>F</m>, edge 3 back to vertex <m>D</m>, and finally edge 8 to vertex <m>E</m>. Intuitively, then, a walk strings together several edges that share vertices.  Making that formal, we have the following.</p>
 
-<definition><title>Walk</title><p><m>walk</m> in a graph <m>\Gamma</m> is a sequence </p>
+<definition><title>Walk</title> A <p><m>walk</m> in a graph <m>\Gamma</m> is a sequence </p>
 
 <me>v_0, e_1, v_1,e_2, v_2,\dots, v_{n-1}, e_n, v_n</me>
 
@@ -51,9 +51,9 @@
 <p>We say that the walk is between vertices <m>a=v_0</m> and <m>b=v_n</m></p>
 </definition>
 
-<p>With this notation for a walk, Example <xref ref="fig_walkdrawing" />, the walk shown would be written <m>A, 6, D, 4, C, 5, F, 3, D, 8, E</m>.  The visual representation of the walk on the graph is vastly more intuitive, the written one feeling cumbersome in comparison.</p>
+<p>With this notation for a walk, in the Example of <xref ref="fig_walkdrawing" />, the walk shown would be written <m>A, 6, D, 4, C, 5, F, 3, D, 8, E</m>.  The visual representation of the walk on the graph is vastly more intuitive, the written one feeling cumbersome in comparison.</p>
 
-<p>The definition of walk above contains some extra information.  If we just know the sequence of edges we can reconstruct what the vertices have to be (assuming we have at least two edges in the walk).  Alternatively, if the graph <m>\Gamma</m> does not have multiple edges, it is enough to just know the vertices <m>v_i</m>, but if <m>\Gamma</m> has multiple edges that just knowing the vertices does not determine the walk.</p>
+<p>The definition of a walk above contains some extra information.  If we just know the sequence of edges we can reconstruct what the vertices have to be (assuming we have at least two edges in the walk).  Alternatively, if the graph <m>\Gamma</m> does not have multiple edges, it is enough to just know the vertices <m>v_i</m>, but if <m>\Gamma</m> has multiple edges then just knowing the vertices does not determine the walk.</p>
 
 
 <definition><title>Connected</title> <p>We say a graph <m>\Gamma</m> is <em>connected</em> if for any two vertices <m>v,w</m>, there is a walk from <m>v</m> to <m>w</m> in <m>\Gamma</m>.</p></definition>
@@ -104,17 +104,17 @@ A graph <m>\Gamma</m> is <em>disconnected</em> if we can write <m>\Gamma=\Gamma_
 <p>It is sometimes convenient to have terminology for walks that don't backtrack on themselves:</p>
 
 <definition>
-<ol><li>  If the edges <m>e_i</m> of the walk are all distinct, we call it a <em>trail</em></li>
-<li> If the vertices <m>v_i</m> of the walk are all distinct (except possibly <m>v_0=v_m</m>), we call the walk a <em>path</em>.  The exception is to allow for the possibility of closed paths.</li></ol></definition>
+<ol><li>  If the edges <m>e_i</m> of the walk are all distinct, we call it a <em>trail</em>.</li>
+<li> If the vertices <m>v_i</m> of the walk are all distinct (except possibly the start and end vertices), we call the walk a <em>path</em>.  The exception is to allow for the possibility of closed paths.</li></ol></definition>
 
 <lemma><p>Let <m>v,w\in V(\Gamma)</m>.  The following are equivalent:</p>
 <ol>
-<li>There is a walk from <m>v</m> to <m>w</m> </li>
-<li> There is a trail from <m>v</m> to <m>w</m></li>
+<li>There is a walk from <m>v</m> to <m>w</m>. </li>
+<li> There is a trail from <m>v</m> to <m>w</m>.</li>
 <li> There is a path from <m>v</m> to <m>w</m>.</li>
 </ol></lemma>
 
-<p>As is often the case, the formal write-up of the proof makes something that can seem very easy intuitively look laborious, so it's worth anlysing it briefly for our example walk <m>A-D-C-F-D-E</m> from <xref ref="fig_walkdrawing" />.  This walk is not a path as it repeats the vertex <m>D</m>; however, we may simply remove the triangle <m>D-C-F-D</m> from the walk to get the trail <m>A-D-E</m>.  this idea is what works in general.</p>
+<p>As is often the case, the formal write-up of the proof makes something that can seem very easy intuitively look laborious, so it's worth anlysing it briefly for our example walk <m>A-D-C-F-D-E</m> from <xref ref="fig_walkdrawing" />.  This walk is not a path as it repeats the vertex <m>D</m>; however, we may simply remove the triangle <m>D-C-F-D</m> from the walk to get the trail <m>A-D-E</m>.  This idea is what works in general.</p>
 
 <proof><p>It is immediate from the definitions that 3 implies 2 which implies 1, as any path is a trail, and any trail is a walk.</p>
 
