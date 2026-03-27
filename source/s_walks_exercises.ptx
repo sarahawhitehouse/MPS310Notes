@@ -30,7 +30,7 @@
     </exercise>
    <exercise>
         <statement>
-            <p>Find an eulerian circuit in the graph <m>\bfG</m> in <xref ref="fig_graphs_euler_exercise" /> or explain why one does not exist.</p>
+            <p>Find an Eulerian circuit in the graph <m>\bfG</m> in <xref ref="fig_graphs_euler_exercise" /> or explain why one does not exist.</p>
             <figure xml:id="fig_graphs_euler_exercise">
                 <caption>A graph <m>\bfG</m></caption>
                 <image width="75%" source="images/eulerexercise" />
@@ -39,7 +39,7 @@
     </exercise>
      <exercise>
         <statement>
-            <p>Consider the graph <m>\bfG</m> in <xref ref="fig_graphs_euler_hamilton_ex" />. Determine if the graph is eulerian. If it is, find an eulerian circuit. If it is not, explain why it is not. Determine if the graph is hamiltonian. If it is, find a hamiltonian cycle. If it is not, explain why it is not.</p>
+            <p>Consider the graph <m>\bfG</m> in <xref ref="fig_graphs_euler_hamilton_ex" />. Determine if the graph is Eulerian. If it is, find an Eulerian circuit. If it is not, explain why it is not. Determine if the graph is Hamiltonian. If it is, find a Hamiltonian cycle. If it is not, explain why it is not.</p>
             <figure xml:id="fig_graphs_euler_hamilton_ex">
                 <caption>A graph <m>\bfG</m></caption>
                 <image width="65%" source="images/euler_hamilton_ex"/>
