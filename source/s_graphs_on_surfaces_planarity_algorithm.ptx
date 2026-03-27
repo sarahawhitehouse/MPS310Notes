@@ -84,7 +84,6 @@
         <p>Let <m>p\in S^2</m> be any point.  Then <m>S^2\setminus\{p\}</m> is homeomorphic<m>\reals^2</m>.
 That is, there are continuous functions <m>f:S^2\setminus\{p\}\to \reals^2</m> and <m>g:\reals^2\to S^2\setminus\{p\}</m> such that <m>f\circ g</m> is the identity on <m>\reals^2</m>, and <m>g\circ f</m> is the identity on <m>S^2\setminus\{p\}</m>. </p>
 </statement>
-</proposition>
 <proof>
 <p>
   One way to visualize this is imagine the sphere as being made from very flexible clay.  If we poke a small hole in the top of the sphere, we could stick our fingers in and make the hole larger, and gradually stretch and bend and reform for the sphere to be a flat disk, which could be stretched to be the whole plane, in the same way the tangent function maps the interval <m>(-\pi/2, pi/2)</m> to the whole real line <m>\reals</m> </p>
