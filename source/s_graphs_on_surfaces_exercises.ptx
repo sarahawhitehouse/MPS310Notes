@@ -58,7 +58,7 @@
 
 <exercise><statement><p>A connected plane graph has faces of degrees 3 and 10 only, and every vertex has degree at least 3.  Prove that it must have fewer faces of degree 10 than of degree 3.  If every vertex has degree 3, prove that the number of faces of degree 10 must be a multiple of 3 and the number of faces of degree 3 must be a multiple of 4.</p>
 
-<p>As an example, how many faces of degree 3 and degree 10 does the truncated dodecahedron possess?  (A truncated dodecahedron is obtained by sliving off each vertex of a dodecahedron to give a triangle.)</p>
+<p>As an example, how many faces of degree 3 and degree 10 does the truncated dodecahedron possess?  (A truncated dodecahedron is obtained by slicing off each vertex of a dodecahedron to give a triangle.)</p>
 
 </statement>
 </exercise>
