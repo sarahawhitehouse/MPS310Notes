@@ -2,15 +2,15 @@
 <title>Chromatic index and applications</title>
 
 
-<p>It is a natural twist of the definition of chromatic number to try to colour the edges of a graph instead; the least number of colours needed is the called the <em>chromatic index</em>.  After introducing this concept and giving some examples, we give some story problem type questions that boil down to finding either the chromatic number or chromatic index.</p>
+<p>It is a natural variant of the idea of chromatic number to try to colour the edges of a graph instead; the least number of colours needed is the called the <em>chromatic index</em>.  After introducing this concept and giving some examples, we give some questions that boil down to finding either the chromatic number or chromatic index.</p>
 
 <definition><title>Chromatic index</title>
-<p>The <em>chromatic index</em> <m>\chi^\prime(\bfG)</m> of a graph <m>\bfG</m> is the least number of colours needed to colour the edges of <m>\bfG</m> so that any two edges that share a vertex have different colours.
+<p>The <em>chromatic index</em> <m>\chi^\prime(\bfG)</m> of a graph <m>\bfG</m> is the smallest number of colours needed to colour the edges of <m>\bfG</m> so that any two edges that share a vertex have different colours.
 </p></definition>
 
-<p>Not that as with the chromatic number, since the chromatic index <m>\chi^\prime(\bfG)</m> is the minimum number of colours such that the edges can be coloured with adjacent edges having different colours, to show <m>\chi^\prime(\bfG)=N</m> typically requires two steps:</p>
-<ol><li>Prove that the edges of <m>\bfG</m> can be coloured with <m>N</m> colours</li>
-<li>Prove that the edges of <m>\bfG</m> cannot be coloured with less than <m>N</m> colours</li>
+<p>Note that as with the chromatic number, since the chromatic index <m>\chi^\prime(\bfG)</m> is the minimum number of colours such that the edges can be coloured with adjacent edges having different colours, to show <m>\chi^\prime(\bfG)=N</m> typically requires two steps:</p>
+<ol><li>Prove that the edges of <m>\bfG</m> can be coloured with <m>N</m> colours.</li>
+<li>Prove that the edges of <m>\bfG</m> cannot be coloured with less than <m>N</m> colours.</li>
 </ol>
 
 <example><title>The complete graph <m>K_4</m></title>
@@ -41,13 +41,14 @@
 </example>
 <p>In the examples above, we found lower bounds for <m>\chi^\prime(\bfG)</m> by considering the degrees of vertices; this argument easily adapts in general.</p>
 
-<theorem><statement><p>For any graph <m>\bfG</m> we have <m>\chi^\prime(\bfG)\geq\Delta(\bfG)</m></p></statement><proof><p>Let <m>v\in\bfG</m> be a vertex of maximal degree <m>d(v)=\Delta(\bfG)</m>.  Then none of the <m>\Delta(\bfG)</m> edges incident to <m>v</m> can be coloured the same colour, and so we have <m>\chi^\prime(\bfG)\geq \Delta(\bfG)</m></p></proof></theorem>
-<p>It turns out that this nearly determines the chromatic index <m>\chi^\prime(\bfG)</m> -- it can be at most one more than <m>\Delta(\bfG)</m>:</p>
-<theorem><title>Vizing's Theorem</title><statement><p>For any graph <m>\bfG</m> we have <m>\Delta(\bfG)\leq \chi^\prime(\bfG)\leq \Delta(\bfG)+1</m></p></statement><proof><p>The lower bound was just proved in the previous theorem.  The other direction is more difficult.</p> </proof></theorem>
+<theorem><statement><p>For any graph <m>\bfG</m> we have <m>\chi^\prime(\bfG)\geq\Delta(\bfG)</m>.</p></statement><proof><p>Let <m>v\in\bfG</m> be a vertex of maximal degree <m>d(v)=\Delta(\bfG)</m>.  Then none of the <m>\Delta(\bfG)</m> edges incident to <m>v</m> can be coloured the same colour, and so we have <m>\chi^\prime(\bfG)\geq \Delta(\bfG)</m>.</p></proof></theorem>
+<p>It turns out that this nearly determines the chromatic index <m>\chi^\prime(\bfG)</m> -- it can be at most one more than <m>\Delta(\bfG)</m>. We'll state this as Vizing's Theorem, but not prove the harder part.</p>
+<theorem><title>Vizing's Theorem</title><statement><p>For any graph <m>\bfG</m> we have <m>\Delta(\bfG)\leq \chi^\prime(\bfG)\leq \Delta(\bfG)+1</m></p></statement>
+        </theorem>
 
 <p>We now show how determining the chromatic number and chromatic index can show up as part of story questions.</p>
 
-<p>Suppose there are six friends, Alice, Bob, Charlie, Dora, Elizabeth and Frank, and there is the following graph between then:</p>
+<p>Suppose there are six friends, Alice, Bob, Charlie, Dora, Elizabeth and Frank, and there is the following graph <m>\bfG</m> between them.</p>
 
 <sbsgroup widths="50% 40%" margins="auto" valign="middle">
 <sidebyside>
@@ -63,7 +64,7 @@
 
 
 <p>Here are two word problems related to <m>\bfG</m>:</p>
-<ol><li>The friends want to divide into groups, but the edges indicate people who currently annoy each other.  What's the least number of groups the friends can divide into groups so that no group contains two people who annoy each other?</li>
+<ol><li>The friends want to divide into groups, but the edges indicate people who currently annoy each other.  What's the smallest number of groups the friends can divide into  so that no group contains two people who annoy each other?</li>
 <li>The friends want to hold a snooker tournament, with everyone playing three matches; the edges indicate pairs of friends who will play against each other.  If multiple matches can be played each day, but each person can only be involved in one match a day, how many days are necessary to hold the tournament?</li>
 </ol>
 
