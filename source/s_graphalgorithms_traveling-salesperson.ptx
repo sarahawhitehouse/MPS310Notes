@@ -1,5 +1,5 @@
 <section xml:id="s_graphalgorithms_traveling-salesperson">
-    <title>The Traveling Salesperson Problem</title>
+    <title>The Travelling Salesperson Problem</title>
     <introduction>
     <p>In this section we discuss the Travelling Salesperson problem.  In <xref ref="subs_graphalgorithms_tsp_intro" />  we introduce the problem and give some explanation of why it is very hard in general.  Rather than try to solve it exactly, we will resort to providing upper and lower bounds for the solution.  In <xref ref="subs_graphalgorithms_tsp_upper" />  we discuss various methods of constructing upper bounds.  In <xref ref="subs_graphalgorithms_tsp_lower" />  we give a method of constructing lower bounds.</p>
   </introduction>
@@ -15,7 +15,7 @@
 
 <p>First, note that it is enough to consider the complete graph <m>K_n</m>.  If we are given some other weighted graph <m>\bfG</m>, we can add all the edges not in <m>\bfG</m> but make their weights <em>much</em> larger than any of the weights inside <m>\bfG</m>.</p>
 
-<p>Another important point is that the problem of determining whether a given graph <m>\bfG</m> has a Hamiltonian cycle is a special case of the traveling salesman problem.  To see this, suppose we're given a graph <m>\bfG</m>, and we want to determine whether it is Hamiltonian.  We create a weighted <m>K_n</m>, with vertices the vertices of <m>\bfG</m> by giving the edge <m>v-w</m> a very small weight <m>\epsilon</m> if <m>v</m> and <m>w</m> <em>are</em> adjacent in <m>\bfG</m>, and a very large weight <m>M</m> if <m>v</m> and <m>w</m> *are not* adjacent in <m>\bfG</m>.  Then, any Hamiltonian path in <m>\bfG</m> would have cost <m>n\epsilon</m>, where as any path that uses an edge not in <m>\bfG</m> costs more than <m>M</m>.  So, if we make <m>M>n\epsilon</m>, the TSP for our weighted <m>K_n</m> will have a solution with cost less than <m>M</m> if and only if <m>\bfG</m> had a Hamiltonian cycle.</p>
+<p>Another important point is that the problem of determining whether a given graph <m>\bfG</m> has a Hamiltonian cycle is a special case of the traveling salesperson problem.  To see this, suppose we're given a graph <m>\bfG</m>, and we want to determine whether it is Hamiltonian.  We create a weighted <m>K_n</m>, with vertices the vertices of <m>\bfG</m> by giving the edge <m>v-w</m> a very small weight <m>\epsilon</m> if <m>v</m> and <m>w</m> <em>are</em> adjacent in <m>\bfG</m>, and a very large weight <m>M</m> if <m>v</m> and <m>w</m> *are not* adjacent in <m>\bfG</m>.  Then, any Hamiltonian path in <m>\bfG</m> would have cost <m>n\epsilon</m>, where as any path that uses an edge not in <m>\bfG</m> costs more than <m>M</m>.  So, if we make <m>M>n\epsilon</m>, the TSP for our weighted <m>K_n</m> will have a solution with cost less than <m>M</m> if and only if <m>\bfG</m> had a Hamiltonian cycle.</p>
 
 <p>Since determining whether a graph <m>\bfG</m> is Hamiltonian is difficult (NP complete), the TSP will also be.  As such, we will not discuss any algorithms for actually solving TSP.  Instead, we will discuss methods for giving upper and lower bounds for the TSP.</p>
 
@@ -23,11 +23,11 @@
   
   <subsection xml:id="subs_graphalgorithms_tsp_upper"> <title>Finding upper bounds to the TSP</title>
   
-<p>Getting <em>good</em> upper bounds to the TSP will turns out to be difficult.  However, finding not so good upper bounds will turn out to be quite easy.</p>
+<p>Getting <em>good</em> upper bounds to the TSP turns out to be difficult.  However, finding not so good upper bounds will turn out to be quite easy.</p>
 
-<p>For instance, any solution to the TSP will be a Hamiltonian cycle, and in particular if <m>\bfG</m> contains <m>n</m> vertices, the TSP solution will contain <m>n</m> edges.  Let <m>M</m> be the weight of the most expensive edge in <m>\bfG</m>.  </p>
+<p>For instance, any solution to the TSP will be a Hamiltonian cycle <m>C</m>, and in particular if <m>\bfG</m> contains <m>n</m> vertices, the TSP solution will contain <m>n</m> edges, say <m>e_1, e_2, \ldots, e_n</m>.  Let <m>M</m> be the weight of the most expensive edge in <m>\bfG</m>.  </p>
 
-<me>w(C)=\sum_{i=1}^n w(e_i)\leq \sum_{i=1}^ M = nM</me>
+<me>w(C)=\sum_{i=1}^n w(e_i)\leq \sum_{i=1}^{n} M = nM</me>
 
 <p>Since the TSP asks for the cheapeast Hamiltonian cycle, taking <em>any</em> Hamiltonian cycle and calculating its cost will be an upper bound for the TSP.  Just choosing a random Hamiltonian cycle will in general be very expensive and silly -- for instance, going from Sheffield to London to Rotherham to Edinburgh to Chesterfield to Glasgow to Nottingham to Brighton is clearly not optimal.</p>
 
