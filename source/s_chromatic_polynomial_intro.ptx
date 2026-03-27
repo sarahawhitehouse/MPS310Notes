@@ -70,9 +70,11 @@ For any tree <m>T</m>, the chromatic polynomial is given by <m>P_T(k)=k(k-1)^{n-
 <p>We already covered the extreme case where <m>\bfG=E_n</m> is just a disjoint union of vertices; we could colour each vertex independently of the others, as there were no edges between them at all. A similar argument works in general to give the following.</p>
 
 <proposition><statement><p>Let <m>\bfG=\bfG_1\sqcup \bfG_2</m> be a disconnected graph.  
-     Then <m>P_{\bfG}(k)=P_{\bfG_1}(k)P_{\bfG_2}(k)</m>.</p></statement><proof><p>A colouring of <m>\bfG</m> with <m>k</m> colours gives a colouring of <m>\bfG_1</m> with <m>k</m> colours and a colouring of <m>\bfG_2</m> with <m>k</m> colours.  
+     Then <m>P_{\bfG}(k)=P_{\bfG_1}(k)P_{\bfG_2}(k)</m>.</p></statement>
+     
+     <proof><p>A colouring of <m>\bfG</m> with <m>k</m> colours gives a colouring of <m>\bfG_1</m> with <m>k</m> colours and a colouring of <m>\bfG_2</m> with <m>k</m> colours.  </p>
 
-Similarly, since <m>\bfG_1, \bfG_2</m> are disconnected, how we colour one will have no effect on what colourings are possible for the other.  Hence, colouring <m>\bfG</m> is exactly the same as colouring <m>\bfG_1</m> and <m>\bfG_2</m>.</p></proof></proposition>
+<p>Similarly, since <m>\bfG_1, \bfG_2</m> are disconnected, how we colour one will have no effect on what colourings are possible for the other.  Hence, colouring <m>\bfG</m> is exactly the same as colouring <m>\bfG_1</m> and <m>\bfG_2</m>.</p></proof></proposition>
 
 It gets more interesting if <m>\bfG</m> is <em>almost</em> the disjoint union of two graphs, by which we mean that <m>\bfG</m> is the union of two subgraphs <m>\bfG_1</m> and <m>\bfG_2</m> that are nearly disjoint -- perhaps they share a single vertex, or two vertices connected by an edge.  In these cases, there are nice "gluing" formulas relating the chromatic polynomials of <m>\bfG, \bfG_1</m> and <m>\bfG_2</m>; as <m>\bfG_1\cap\bfG_2</m> grows more complicated it is still possible to say something but the answer gets more complicated and not worth it.
 
