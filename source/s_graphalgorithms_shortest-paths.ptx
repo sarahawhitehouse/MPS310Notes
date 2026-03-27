@@ -1,7 +1,7 @@
 <section xml:id="s_graphalgorithms_shortest-paths">
     <title>Dijkstra's Algorithm for Shortest Paths</title>
     <introduction>
-        <p>Just as with graphs, it is useful to assign weights to the directed edges of a digraph. Specifically, in this section we consider a pair <m>(\bfG,w)</m> where <m>\GVE</m> is a digraph and <m>w\colon E\rightarrow\nonnegints</m> is a function assigning to each directed edge <m>(x,y)</m> a non-negative weight <m>w(x,y)</m>. However, in this section, we interpret weight as <term>distance</term><idx><h>distance</h></idx> so that <m>w(x,y)</m> is now called the <term>length</term><idx><h>length</h></idx> of the edge <m>(x,y)</m>. If <m>P=(r=u_0,u_1,\dots,u_t=x)</m> is a directed path from <m>r</m> to <m>x</m>, then the <term>length</term> of the path <m>P</m> is just the sum of the lengths of the edges in the path, <m>\sum_{i=0}^{t-1} w(u_iu_{i+1})</m>. The <term>distance</term> from <m>r</m> to <m>x</m> is then defined to be the minimum length of a directed path from <m>r</m> to <m>x</m>. Our goal in this section is to solve the following natural problem, which has many applications:
+        <p>Just as with graphs, it is useful to assign weights to the directed edges of a digraph. Specifically, in this section we consider a pair <m>(\bfG,w)</m> where <m>\GVE</m> is a digraph and <m>w\colon E\rightarrow\nonnegints</m> is a function assigning to each directed edge <m>(x,y)</m> a non-negative weight <m>w(x,y)</m>. However, in this section, we interpret weight as <term>distance</term><idx><h>distance</h></idx> so that <m>w(x,y)</m> is now called the <term>length</term><idx><h>length</h></idx> of the edge <m>(x,y)</m>. If <m>P=(r=u_0,u_1,\dots,u_t=x)</m> is a directed path from <m>r</m> to <m>x</m>, then the <term>length</term> of the path <m>P</m> is just the sum of the lengths of the edges in the path, <m>\sum_{i=0}^{t-1} w(u_iu_{i+1})</m>. The <term>distance</term> from <m>r</m> to <m>x</m> is then defined to be the minimum length of a directed path from <m>r</m> to <m>x</m>. Our goal in this section is to solve the following natural problem, which has many applications.
         </p>
 
         <problem>
@@ -224,7 +224,7 @@
 
     <subsection>
         <title>The Correctness of Dijkstra's Algorithm</title>
-        <p>Now that we've illustrated Dijkstra's algorithm, it's time to prove that it actually does what we claimed it does: find the distance from the root vertex to each of the other vertices and a path of that length. To do this, we first state two elementary propositions. The first is about shortest paths in general, while the second is specific to the sequence of permanent vertices produced by Dijkstra's algorithm.
+        <p>Now that we've illustrated Dijkstra's algorithm, it's time to prove that it actually does what we claimed it does: finding the distance from the root vertex to each of the other vertices and a path of that length. To do this, we first state two elementary propositions; proofs are left as an easy exercise. The first is about shortest paths in general, while the second is specific to the sequence of permanent vertices produced by Dijkstra's algorithm.
         </p>
 
         <proposition>
