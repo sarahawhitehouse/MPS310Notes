@@ -1078,30 +1078,30 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.3",
   "title": "Digraphs",
-  "body": " Digraphs  In this section, we introduce another useful variant of a graph. In a graph, the existence of an edge can be used to model a connection between and that goes in both ways. However, sometimes such a model is insufficient. For instance, perhaps it is possible to fly from Atlanta directly to Fargo but not possible to fly from Fargo directly to Atlanta. In a graph representing the airline network, an edge between Atlanta and Fargo would lose the information that the flights only operate in one direction. To deal with this problem, we introduce a new discrete structure. A digraph digraph graph directed digraph  is a pair where is a vertex set and with for every . We consider the pair as a directed edge edge directed from to . Note that for distinct vertices and from , the ordered pairs and are distinct, so the digraph may have one, both or neither of the directed edges and . This is in contrast to graphs, where edges are sets, so and are the same.  Diagrams of digraphs use arrowheads on the edges to indicate direction. This is illustrated in . For example, the digraph illustrated there contains the edge but not the edge . It does contain both edges and , however.   A Digraph    When is a digraph, a sequence of distinct vertices is called a directed path path directed from to when is a directed edge in for every . A directed path is called a directed cycle cycle directed when is a directed edge of .  "
+  "body": " Digraphs  In this section, we introduce another useful variant of a graph. In a graph, the existence of an edge can be used to model a connection between and that goes both ways. However, sometimes such a model is insufficient. For instance, perhaps it is possible to fly from Atlanta directly to Fargo but not possible to fly from Fargo directly to Atlanta. In a graph representing the airline network, an edge between Atlanta and Fargo would lose the information that the flights only operate in one direction. To deal with this problem, we introduce a new discrete structure.  Digraph A digraph  is a pair where is a vertex set and with for every . We consider the pair as a directed edge edge directed from to .  Note that for distinct vertices and from , the ordered pairs and are distinct, so the digraph may have one, both or neither of the directed edges and . This is in contrast to graphs, where edges are sets, so and are the same.  Diagrams of digraphs use arrowheads on the edges to indicate direction. This is illustrated in . For example, the digraph illustrated there contains the edge but not the edge . It does contain both edges and , however.   A Digraph    When is a digraph, a sequence of distinct vertices is called a directed path path directed from to when is a directed edge in for every . A directed path is called a directed cycle cycle directed when is a directed edge of .  "
 },
 {
-  "id": "s_graphalgorithms_digraphs-2",
+  "id": "s_graphalgorithms_digraphs-3",
   "level": "2",
-  "url": "s_graphalgorithms_digraphs.html#s_graphalgorithms_digraphs-2",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "digraph directed edge "
+  "url": "s_graphalgorithms_digraphs.html#s_graphalgorithms_digraphs-3",
+  "type": "Definition",
+  "number": "3.3.1",
+  "title": "Digraph.",
+  "body": "Digraph A digraph  is a pair where is a vertex set and with for every . We consider the pair as a directed edge edge directed from to . "
 },
 {
   "id": "fig_graphalgorithms_digraph",
   "level": "2",
   "url": "s_graphalgorithms_digraphs.html#fig_graphalgorithms_digraph",
   "type": "Figure",
-  "number": "3.3.1",
+  "number": "3.3.2",
   "title": "",
   "body": " A Digraph   "
 },
 {
-  "id": "s_graphalgorithms_digraphs-5",
+  "id": "s_graphalgorithms_digraphs-7",
   "level": "2",
-  "url": "s_graphalgorithms_digraphs.html#s_graphalgorithms_digraphs-5",
+  "url": "s_graphalgorithms_digraphs.html#s_graphalgorithms_digraphs-7",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
