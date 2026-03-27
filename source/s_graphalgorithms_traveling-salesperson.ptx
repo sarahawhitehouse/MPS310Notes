@@ -33,7 +33,7 @@
 
 <p>A greedy algorithm will give a heuristically better result: we call it the <em>nearest neighbour algorithm</em>.  At each step, simply go to the nearest city you have not already visited.  This will give good results at the beginning, but since we do not do any planning ahead, it will in general give bad results, as the following example illustrates:</p>
 
-<figure xml:id="fig_nearestneighbourbadexample"> <caption>The graph <m>\bfG</m> where nearest neighbour struggles</caption>
+<figure xml:id="fig_nearestneighbourbadexample"> <caption>A graph <m>\bfG</m> where nearest neighbour struggles</caption>
 <image width="70%">
 <latex-image><![CDATA[\begin{tikzpicture} 
 \begin{scope}[xscale=2,  every node/.style={circle, thick, draw}]
@@ -46,7 +46,7 @@
 ]]>
 </latex-image></image></figure>
 
-<p>In the graph, let <m>v_4-w</m> and <m>w-v_5</m> have weight <m>2</m>, let <m>v_0-w</m> <m>v_9-w</m> have weight <m>5</m> and all remaining weights be 1.  Consider running the nearest neighbour algorithm starting at <m>v_0</m>.  Our choice is forced -- <m>v_1-v_2-v_3-v_4-v_5-v_6-v_7-v_8-v_9</m> costs one at each step.  Now, we still have to visit <m>w</m> before returning to <m>v_0</m>, which will cost us 10 to detour through.  We clearly should have planned ahead and visited <m>w</m> in between vertices <m>v_4</m> and <m>v_5</m> at a cost of 4.</p>
+<p>In the graph, let <m>v_4-w</m> and <m>w-v_5</m> have weight <m>2</m>, let <m>v_0-w</m> and <m>v_9-w</m> have weight <m>5</m> and let all remaining weights be 1.  Consider running the nearest neighbour algorithm starting at <m>v_0</m>.  Our choice is forced -- <m>v_0-v_1-v_2-v_3-v_4-v_5-v_6-v_7-v_8-v_9</m> costs one at each step.  Now, we still have to visit <m>w</m> before returning to <m>v_0</m>, which will cost us 10 to detour through.  We clearly should have planned ahead and visited <m>w</m> in between vertices <m>v_4</m> and <m>v_5</m> at a cost of 4.</p>
 
 <p>Clearly the nearest neighbour algorithm is not in general very good, and better algorithms are possible.  We present it first to give a quick but reasonable way to get a solution to TSP that isn't <em>completely</em> horrible, and second to illustrate that greedy algorithms in general will not be efficient.  We briefly mention two other ways to get lower bounds.</p>
 
