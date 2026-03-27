@@ -14,7 +14,7 @@
 
 <p>Although this attempt failed, it seems very difficult to rule out that some other attempt wouldn't succeed; trying to make a case by case argument seems quite difficult to organize, and it's not clear that there are even finitely many possibilities.  We need a careful way to approach the problem, which we will do in a moment, but first we will use this problem as motivation to make a few definitions.</p>
 </subsection>
-<subsection><title>Planar graphs
+<subsection><title>Planar graphs</title>
 <definition><p>A graph is <em>planar</em> if it can be drawn on a piece of paper so that no edges cross.</p></definition>
 <p>That definition is a bit loose -- for instance, it's left implicit that we're drawing the edges as lines, with the endpoints being the two vertices it connects.  But this will be strong enough for our purposes.</p>
 
