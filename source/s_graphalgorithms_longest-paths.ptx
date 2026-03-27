@@ -55,8 +55,8 @@
 
 
 
-<subsubsection xml:id="subs_graphalgorithms_longest-path-acyclic-sort"><title>Topolgical sort</title>
-<p>The first step of the Longest Path Algortihm is to number/list the vertices of the graph so that all edges flow from a lower vertex to a higher vertex.  Such a listing is known as a "compatible total ordering" of the vertices, or a "topological sort" of the vertices. For such a list to exist, it is necessary for the graph to be acyclic.  Otherwise, we get a "what came first, the chicken or the egg?" type situation.  For instance, if we had a directed cycle <m>A\to B\to C\to A</m>, we couldn't choose any of <m>A, B,C</m> to put first, as each one has an error into it from the other vertices.</p>
+<subsubsection xml:id="subs_graphalgorithms_longest-path-acyclic-sort"><title>Topological sort</title>
+<p>The first step of the Longest Path Algortihm is to number/list the vertices of the graph so that all edges flow from a lower vertex to a higher vertex.  Such a listing is known as a "compatible total ordering" of the vertices, or a "topological sort" of the vertices. For such a list to exist, it is necessary for the graph to be <term>acyclic</term>, that is, to have no directed cycles.  Otherwise, we get a "what came first, the chicken or the egg?" type situation.  For instance, if we had a directed cycle <m>A\to B\to C\to A</m>, we couldn't choose any of <m>A, B,C</m> to put first, as each one has an error into it from the other vertices.</p>
 
 <p>In our running example graph, the vertices are already numbered in a way compatible with the edge structure, and so is already topologically sorted: <m>S,1,2,3,4,F</m> is an ordering satisfying the desired properties.</p>
 
