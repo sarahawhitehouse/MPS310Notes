@@ -1,10 +1,10 @@
 <section xml:id="s_graphs_on_surfaces_planarity_algorithm">
     <title>The planarity algorithm for Hamiltonian graphs</title>
 
-<introduction> <p>In the previous chapter we showed that <m>K_{3,3}</m> isn't planar; in this section we investigate how the ideas we used to solve the utilities problem for <m>K_{3,3}</m>-- namely, the Jordan Curve theorem and the fact that <m>K_{3,3}</m> is Hamiltonian -- generalize to other graphs.  In the end, this will culminate in "The Planarity Algorithm for Hamiltonian Graphs".</p>
+<introduction> <p>In the previous chapter we showed that <m>K_{3,3}</m> isn't planar; in this section we investigate how the ideas we used to solve the utilities problem for <m>K_{3,3}</m>-- namely, the Jordan Curve theorem and the fact that <m>K_{3,3}</m> is Hamiltonian -- generalize to other graphs.  In the end, this will culminate in the "planarity algorithm for Hamiltonian graphs".</p>
 
 </introduction>
-<subsection> <title>Stereographic Projection and Unnecessary cases</title>
+<subsection> <title>Stereographic projection and unnecessary cases</title>
 <p>It will make our life easier if before we investigate other graphs we streamline our proof for <m>K_{3,3}</m> slightly: there were a few times where we had to treat different cases that wound up behaving essentially the same, and we'd like to see that we didn't actually need to treat them as separate cases.  In particular, we would like to show that the following three seemingly different ways to connect the first two vertices lead to the same analysis:
 <ol>
 <li> Connecting them inside the Hamiltonian cycle</li>
@@ -73,20 +73,25 @@
 ]]> </latex-image></image></figure>
 
 
-<p>The solution will be to think about drawing the graphs on the sphere <m>S^2</m> instead of the plane.  First, let's see why this solves our problem.  On the plane, the inside of a circle is different from the outside of a circle -- the inside is bounded, but the outside is unbounded.  However, on the sphere, the two sides of a circle are equivalent -- you can deform any circle to be an equator, and then the northern hemisphere is equivalent to the southern hemisphere. This shows on there sphere, the inside and the outside aren't really different cases.</p>
+<p>The solution will be to think about drawing the graphs on the sphere <m>S^2</m> instead of the plane.  First, let's see why this solves our problem.  On the plane, the inside of a circle is different from the outside of a circle -- the inside is bounded, but the outside is unbounded.  However, on the sphere, the two sides of a circle are equivalent -- you can deform any circle to be an equator, and then the northern hemisphere is equivalent to the southern hemisphere. This shows that on the sphere, the inside and the outside aren't really different cases.</p>
 
 <p>Furthermore, going around the outside to "the left" or "to the right" are equivalent on the sphere -- you can slowly make the path around the sphere bigger and bigger, and then slip it around the north or south pole, and back.  Alternatively, we've already seen that the inside of the circle is equivalent to the outside of the circle on the sphere <m>S^2</m>, and on the inside of the circle it doesn't matter exactly how the two points are connected, and so it shouldn't matter on the outside, either.</p>
 
-<p>So we've argued that if we're trying to draw a graph on the sphere, all three cases are the same, but it should still feel like a bait-and-switch: we weren't trying to draw graphs on there sphere, we were trying to draw graphs on the plane.  The connection comes from the fact that the sphere can be viewed as a plane with one additional point.</p>
+<p>So we've argued that if we're trying to draw a graph on the sphere, all three cases are the same, but it should still feel like a bait-and-switch: we weren't trying to draw graphs on the sphere, we were trying to draw graphs on the plane.  The connection comes from the fact that the sphere can be viewed as a plane with one additional point.</p>
 
-<proposition><statement>Let <m>p\in S^2</m> be any point.  Then <m>S^2\setminus\{p\}\cong\reals^2</m>.</statement>
+<proposition>
+    <statement>
+        <p>Let <m>p\in S^2</m> be any point.  Then <m>S^2\setminus\{p\}</m> is homeomorphic<m>\reals^2</m>.
+That is, there are continuous functions <m>f:S^2\setminus\{p\}\to \reals^2</m> and <m>g:\reals^2\to S^2\setminus\{p\}</m> such that <m>f\circ g</m> is the identity on <m>\reals^2</m>, and <m>g\circ f</m> is the identity on <m>S^2\setminus\{p\}</m>. </p>
+</statement>
+</proposition>
 <proof>
 <p>
   One way to visualize this is imagine the sphere as being made from very flexible clay.  If we poke a small hole in the top of the sphere, we could stick our fingers in and make the hole larger, and gradually stretch and bend and reform for the sphere to be a flat disk, which could be stretched to be the whole plane, in the same way the tangent function maps the interval <m>(-\pi/2, pi/2)</m> to the whole real line <m>\reals</m> </p>
 
-<p>Alternatively, one could use <a href="https://en.wikipedia.org/wiki/Stereographic_projection">stereographic projection</a>, as shown in Figure .  Draw <m>S^2</m> in <m>\reals^3</m> as the unit sphere at the origin, and let <m>N=(0,0,1)</m> be the north pole of the sphere.  Stereographic projection gives a bijection between <m>S^2\setminus\{N\}</m> (the sphere minus the north pole) to the plane, as follows: for any point <m>p\neq N</m> the line through <m>p</m> and <m>N</m> must meet the <m>xy</m>-plane at one point.  On the other hand, any line through <m>N</m> and a point on the <m>xy</m>-plane must meet the sphere at one other point.</p>
+<p>Alternatively, one could use <a href="https://en.wikipedia.org/wiki/Stereographic_projection">stereographic projection</a>, as shown in Figure<xref ref ="img-stereographic"/>.  Draw <m>S^2</m> in <m>\reals^3</m> as the unit sphere at the origin, and let <m>N=(0,0,1)</m> be the north pole of the sphere.  Stereographic projection gives a bijection between <m>S^2\setminus\{N\}</m> (the sphere minus the north pole) to the plane, as follows: for any point <m>p\neq N</m> the line through <m>p</m> and <m>N</m> must meet the <m>xy</m>-plane at one point.  On the other hand, any line through <m>N</m> and a point on the <m>xy</m>-plane must meet the sphere at one other point.</p>
 
-<figure xml:id="img-stereographic">  <caption>Stereographic Projection</caption> <image width="90%" source="images/stereographic.jpg" />
+<figure xml:id="img-stereographic">  <caption>Stereographic projection</caption> <image width="90%" source="images/stereographic.jpg" />
 
 </figure>
 
@@ -100,11 +105,13 @@
 <p>The preceeding discussion may have felt heavy going, but the upshot is that the cases that seemed "the same" in our analysis of <m>K_{3,3}</m> actually are the same, and similar cases will be the same for any graph. This will make it much easier to extend our reasoning to more complicated graphs.</p>
 
 <p>Suppose that <m>G</m> is Hamiltonian, and choose a Hamiltonian cycle; if <m>G</m> were planar than this cycle must be drawn as a circle, and every other edge must either lie entirely inside or entirely outside the graph.  Now consider two edges <m>e=ab</m> and <m>f=xy</m> that are not part of the cycle.  Depending on the order that <m>a,b,x</m> and <m>y</m> appear as you go around the Hamiltonian cycle, one of two things will happen:
-<ol><li>If the vertices of <m>e</m> and <m>f</m> do not interlace (e.g. <m>abxy, yxab, xbay,\cdots</m>), or if they share a vertex (e.g., <m>a=x</m>), then <m>e</m> may be drawn both inside or both outside the circle without crossing</li>
-<li> If the vertices of <m>e</m> and <m>f</m> do interlace (e.g. <m>axby, xayb, yaxb,\dots...</m>) then if <m>e</m> and <m>f</m> are drawn both inside or both outside the circle, they must cross </li></ol></p>
+<ol><li>If the vertices of <m>e</m> and <m>f</m> do not interlace (e.g. <m>abxy, yxab, xbay,\cdots</m>), or if they share a vertex (e.g., <m>a=x</m>), then <m>e</m> may be drawn both inside or both outside the circle without crossing.</li>
+<li> If the vertices of <m>e</m> and <m>f</m> do interlace (e.g. <m>axby, xayb, yaxb,\dots...</m>) then if <m>e</m> and <m>f</m> are drawn both inside or both outside the circle, they must cross. </li></ol></p>
 
-<p>This motivates the following definition</p>
-<definition><title>Cross(<m>G,C</m>)</title> <statement><p>Let <m>G</m> be a Hamiltonian graph, and <m>C</m> a Hamiltonian cycle in <m>G</m>.  The <em>crossing graph </em> of <m>G</m> and <m>C</m>, denoted Cross(<m>G,C</m>) has as vertices the edges of <m>G</m> that aren't in the cycle, and an edge between vertices <m>p</m> and <m>q</m> if the vertices of the corresponding edges interleave -- that is, <m>p</m> and <m>q</m> are adjacent if they cannot be drawn on the same side of the cycle <m>C</m> without crossing.</p></statement></definition>
+<p>This motivates the following definition.</p>
+<definition><title>Cross(<m>G,C</m>)</title> <statement><p>Let <m>G</m> be a Hamiltonian graph, and <m>C</m> a Hamiltonian cycle in <m>G</m>.  The <em>crossing graph </em> of <m>G</m> and <m>C</m>, denoted Cross(<m>G,C</m>), has as vertices the edges of <m>G</m> that aren't in the cycle, and an edge between vertices <m>p</m> and <m>q</m> if the vertices of the corresponding edges interleave -- that is, <m>p</m> and <m>q</m> are adjacent if they cannot be drawn on the same side of the cycle <m>C</m> without crossing.</p></statement></definition>
+
+<p>Examples of crossing graphs will appear soon.</p>
 
 <algorithm><title>The planarity algorithm for complete graphs</title><statement><p>Suppose that <m>G</m> is Hamiltonian, and <m>C</m> is a Hamiltonian cycle.  Then <m>G</m> is planar if and only if Cross(<m>G,C</m>) is bipartite.</p></statement></algorithm>
 
@@ -112,8 +119,8 @@
 
 <p>Similarly, if we can find a colouring of the vertices of Cross(<m>G,C</m>) so that adjacent vertices have different colours, then we can draw all the edges of <m>G</m> corresponding to red vertices of Cross(<m>G,C</m>) inside (or outside) <m>C</m> without having any of them cross.</p>
 
-<example><title>The complete graph <m>K_5</m> isn't planar</title> <p>Let's apply the planarity algorithm to the complete graph <m>K_5</m>.  Let's label the vertices 1-5, and take our Hamiltonian cycle <m>C</m> to be 123451, which we've drawn as the outside pentagon in the following figure:
-<figure xml:id="fig_planarity_crossk5_edge13"><caption> The graph (<m>K_5</m>)</caption>
+<example><title>The complete graph <m>K_5</m> is not planar</title> <p>Let's apply the planarity algorithm to the complete graph <m>K_5</m>.  Let's label the vertices 1-5, and take our Hamiltonian cycle <m>C</m> to be 123451, which we've drawn as the outside pentagon in the following figure:
+<figure xml:id="fig_planarity_crossk5_edge13"><caption> The graph <m>K_5</m></caption>
 <image width="70%"><latex-image><![CDATA[\begin{tikzpicture}[scale=.7]
 \tikzstyle{vertex}=[circle, draw, minimum size=17pt, inner sep=0pt]
 \node[vertex] (1) at (1,0) {$1$};
@@ -140,7 +147,7 @@
 
 
 
-Since <m>K_5</m> has <m>\binom{5}{2}=10</m> vertices, there are 5 edges that aren't used in <m>C</m>, namely 13,14, 24,25, and 35.  So Cross(<m>K_5, 123451</m>) will consist of these five vertices.  We see that 13 will be adjacent to 24 and 25, since these edges would cross if drawn inside, but 13 is not adjacent to 14 or 35, since these edges would cross 13 if drawn on the same side of the circle, as illustrated in the next figure</p>
+Since <m>K_5</m> has <m>\binom{5}{2}=10</m> edges, there are 5 edges that aren't used in <m>C</m>, namely 13,14, 24, 25, and 35.  So Cross(<m>K_5, 123451</m>) will consist of these five vertices.  We see that 13 will be adjacent to 24 and 25, since these edges would cross if drawn inside, but 13 is not adjacent to 14 or 35, since these edges would cross 13 if drawn on the same side of the circle, as illustrated in the next figure.</p>
 <figure xml:id="fig_planarity_crossk5edges"><caption> The edges 13 does and does not cross</caption>
 <image width="70%"><latex-image><![CDATA[\begin{tikzpicture}[scale=.7]
 \tikzstyle{vertex}=[circle, draw, minimum size=17pt, inner sep=0pt]
@@ -222,7 +229,7 @@ Since <m>K_5</m> has <m>\binom{5}{2}=10</m> vertices, there are 5 edges that are
 
 
 
-<p>Similar consideration with the other edges show that Cross(<m>K_5, 123451</m>) is the following graph, which is isomorphic to a five cycle:</p>
+<p>Similar considerations with the other edges show that Cross(<m>K_5, 123451</m>) is the following graph, which is isomorphic to a five cycle.</p>
 
 <figure xml:id="fig_planarity_crossk5"><caption> The graph Cross(<m>K_5, 123451</m>)</caption>
 <image width="70%"><latex-image><![CDATA[\begin{tikzpicture}[scale=.7]
