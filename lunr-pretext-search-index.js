@@ -826,7 +826,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "2.4",
   "title": "Exercises",
-  "body": "   The questions in this exercise pertain to the graph shown in .    What is the degree of vertex ?  What is the degree of vertex ?  How many vertices of degree are there in ? List them.  Find a cycle of length in .  What is the length of a shortest path from to ?  What is the length of a shortest path from to ?  Find a path of length from vertex to vertex .    A graph         Draw a graph with vertices, all of odd degree, that does not contain a path of length or explain why such a graph does not exist.      Find an eulerian circuit in the graph in or explain why one does not exist.   A graph        Consider the graph in . Determine if the graph is eulerian. If it is, find an eulerian circuit. If it is not, explain why it is not. Determine if the graph is hamiltonian. If it is, find a hamiltonian cycle. If it is not, explain why it is not.   A graph      "
+  "body": "   The questions in this exercise pertain to the graph shown in .    What is the degree of vertex ?  What is the degree of vertex ?  How many vertices of degree are there in ? List them.  Find a cycle of length in .  What is the length of a shortest path from to ?  What is the length of a shortest path from to ?  Find a path of length from vertex to vertex .    A graph         Draw a graph with vertices, all of odd degree, that does not contain a path of length or explain why such a graph does not exist.      Find an Eulerian circuit in the graph in or explain why one does not exist.   A graph        Consider the graph in . Determine if the graph is Eulerian. If it is, find an Eulerian circuit. If it is not, explain why it is not. Determine if the graph is Hamiltonian. If it is, find a Hamiltonian cycle. If it is not, explain why it is not.   A graph      "
 },
 {
   "id": "s_walks_exercises-1",
@@ -853,7 +853,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "2.4.3",
   "title": "",
-  "body": "  Find an eulerian circuit in the graph in or explain why one does not exist.   A graph     "
+  "body": "  Find an Eulerian circuit in the graph in or explain why one does not exist.   A graph     "
 },
 {
   "id": "s_walks_exercises-4",
@@ -862,7 +862,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "2.4.4",
   "title": "",
-  "body": "  Consider the graph in . Determine if the graph is eulerian. If it is, find an eulerian circuit. If it is not, explain why it is not. Determine if the graph is hamiltonian. If it is, find a hamiltonian cycle. If it is not, explain why it is not.   A graph     "
+  "body": "  Consider the graph in . Determine if the graph is Eulerian. If it is, find an Eulerian circuit. If it is not, explain why it is not. Determine if the graph is Hamiltonian. If it is, find a Hamiltonian cycle. If it is not, explain why it is not.   A graph     "
 },
 {
   "id": "s_graphalgorithms_prufer",
