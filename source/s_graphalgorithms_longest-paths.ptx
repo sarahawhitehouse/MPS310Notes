@@ -13,7 +13,6 @@
 
 <p>We will work out the construction of this graph in one example.  It is not always trivial to construct the directed graph from the table of jobs and dependencies.  It is not clear what the vertices should be, and sometimes dummy edges and vertices need to be encoded.  You do not need to worry about constructing these graphs in general, though if you're curious it can be interesting to think about.  Any exam question about this topic would supply you with the directed graph.</p>
 
-
 <subsubsection><title>Our running example</title>
 <p>Consider the following table, listing tasks <m>A-H</m>, the expected time of completion for each task, and the required tasks before a given task can be started.</p>
 <table>
