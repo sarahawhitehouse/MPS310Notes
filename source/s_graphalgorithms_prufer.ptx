@@ -35,7 +35,7 @@
 
 <definition><title>Prüfer code</title><statement><p>If we record the edges of a tree <m>T</m> as in the Pruning Algorithm, the first <m>n-2</m> numbers appearing in the top row give the <em>Prüfer code of <m>T</m></em></p></statement></definition>
 
-<p>To finish the proof of Cayley's Theorem, we need to show that the Prüfer code gives a bijection betwen labelled trees on <m>n</m> vertices and sequences of <m>n-2</m> numbers between 1 and <m>n</m>.  The easiest way to do this is to show that it has an inverse; that is, given any sequence of <m>n-2</m> numbers between 1 and <m>n</m>, we can construct a tree <m>T</m> have that sequence as its Prüfer code.</p>
+<p>To finish the proof of Cayley's Theorem, we need to show that the Prüfer code gives a bijection betwen labelled trees on <m>n</m> vertices and sequences of <m>n-2</m> numbers between 1 and <m>n</m>.  The easiest way to do this is to show that it has an inverse; that is, given any sequence of <m>n-2</m> numbers between 1 and <m>n</m>, we can construct a tree <m>T</m> having that sequence as its Prüfer code.</p>
 
 <p>This is most easily done by filling in the <m>n</m> numbers we deleted from the table of edges to get the Prüfer code.  We will fill in the numbers on the bottom row from left to right.  The first number on the bottom row will be the lowest number that does not appear in the Prüfer code.  Delete the first column, and then iterate -- the next number will be the lowest number we haven't used, and that doesn't appear in the remainder of the Prüfer code.</p>
 <p>Another way to phrase the last line, is that the next number filled in is always the lowest number the doesn't appear as the bottom entry on one of the <m>n-1</m> columns.</p>
