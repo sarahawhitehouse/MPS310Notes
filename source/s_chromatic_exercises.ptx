@@ -73,7 +73,7 @@ A \amp \times \amp -- \amp -- \amp \times  \amp  \times  \amp -- \amp  \times  \
     
     </exercise>
     <exercise>
-    <statement><p>Find the chromatic polynomial of the following three graphs. You should use the chromatic polynomial of the four cycle as a given: <m>\chi_{C_4}(k)=k(k-1)(k^2-3k+3)</m></p>    
+    <statement><p>Find the chromatic polynomial of the following three graphs. You should use the chromatic polynomial of the four cycle as a given: <m>P_{C_4}(k)=k(k-1)(k^2-3k+3)</m></p>    
 <image source="images/ChromPolyProbA.png"/>
 <image source="images/ChromPolyProbB.png"/>
 <image source="images/ChromPolyProbC.png"/>
