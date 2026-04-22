@@ -30,7 +30,7 @@
 
 <p>If we could, the vertices would have to alternate red-blue-red-blue all the way around.  This works if <m>n</m> is even, but if <m>n</m> is odd then the vertex we started with would have the same colour as the vertex we ended with, but they're adjacent.  Thus, when <m>n</m> is odd we need at least three colours to colour the graph, but it's easy to do with three colours -- we can alternate red-blue-red-blue, but make the very last vertex green, for instance.</p>
 
-<p>Summarizing, we have:<me><![CDATA[\chi(C_n)=\begin{cases} 2 & n \text{ odd} \\ 3 & n \text{ even} \end{cases}]]></me>
+<p>Summarizing, we have:<me><![CDATA[\chi(C_n)=\begin{cases} 2 & n \text{ even} \\ 3 & n \text{ odd} \end{cases}]]></me>
 </p></example>
 
 <p>In fact, as thinking about the examples of trees and cycles should show, we've already met one instance of the chromatic number -- a graph <m>\bfG</m> is bipartite if and only if <m>\chi(\bfG)=2</m>, as follows immediately from the definition.</p>
