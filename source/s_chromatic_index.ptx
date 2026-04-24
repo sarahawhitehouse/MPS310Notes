@@ -2,7 +2,7 @@
 <title>Chromatic index and applications</title>
 
 
-<p>It is a natural variant of the idea of chromatic number to try to colour the edges of a graph instead; the smallst number of colours needed is the called the <em>chromatic index</em>.  After introducing this concept and giving some examples, we give some questions that boil down to finding either the chromatic number or chromatic index.</p>
+<p>It is a natural variant of the idea of chromatic number to try to colour the edges of a graph instead; the smallest number of colours needed is called the <em>chromatic index</em>.  After introducing this concept and giving some examples, we give some questions that boil down to finding either the chromatic number or chromatic index.</p>
 
 <definition><title>Chromatic index</title>
 <p>The <em>chromatic index</em> <m>\chi^\prime(\bfG)</m> of a graph <m>\bfG</m> is the smallest number of colours needed to colour the edges of <m>\bfG</m> so that any two edges that share a vertex have different colours.
