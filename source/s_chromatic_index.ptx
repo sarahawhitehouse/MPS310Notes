@@ -62,7 +62,9 @@
 </tabular>
 <image width="80%" source="images/ChromaticNumberVsIndex.png" /> </sidebyside></sbsgroup></delete>
 
+<sidebyside><p>Suppose there are six friends, Alice, Bob, Charlie, Dora, Elizabeth and Frank, and there is the following graph <m>\bfG</m> between them.</p>
 <image width="80%" source="images/ChromaticNumberVsIndex.png" />
+</sidebyside>
 
 <p>Here are two word problems related to <m>\bfG</m>:</p>
 <ol><li>The friends want to divide into groups, but the edges indicate people who currently annoy each other.  What's the smallest number of groups the friends can divide into  so that no group contains two people who annoy each other?</li>
