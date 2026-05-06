@@ -50,7 +50,7 @@
 
 <p>Suppose there are six friends, Alice, Bob, Charlie, Dora, Elizabeth and Frank, and there is the following graph <m>\bfG</m> between them.</p>
 
-<delete><sbsgroup widths="50% 40%" margins="auto" valign="middle">
+<sbsgroup widths="50% 40%" margins="auto" valign="middle">
 <sidebyside>
     <tabular halign="center">
         <row> <cell bottom="medium">A</cell></row>
@@ -60,13 +60,7 @@
         <row><cell bottom="medium" right="medium">X</cell><cell bottom="medium" right="medium"></cell><cell bottom="medium" right="medium">X</cell><cell bottom="medium" right="medium"></cell><cell bottom="medium">E</cell></row>
 	<row><cell right="medium"></cell><cell right="medium">X</cell><cell right="medium"></cell><cell right="medium">X</cell><cell right="medium">X</cell><cell>F</cell></row>
 </tabular>
-<image width="80%" source="images/ChromaticNumberVsIndex.png" /> </sidebyside></sbsgroup></delete>
-
-<sbsgroup widths="60% 30%" margins="auto" valign="middle">
-<sidebyside><p>Suppose there are six friends, Alice, Bob, Charlie, Dora, Elizabeth and Frank, and there is the following graph <m>\bfG</m> between them.</p>
-<image width="80%" source="images/ChromaticNumberVsIndex.png" />
-</sidebyside>
-</sbsgroup>
+<image width="80%" source="images/ChromaticNumberVsIndex.png" /> </sidebyside></sbsgroup>
 
 <p>Here are two word problems related to <m>\bfG</m>:</p>
 <ol><li>The friends want to divide into groups, but the edges indicate people who currently annoy each other.  What's the smallest number of groups the friends can divide into  so that no group contains two people who annoy each other?</li>
