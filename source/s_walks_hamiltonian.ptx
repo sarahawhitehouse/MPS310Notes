@@ -59,7 +59,7 @@ Wikipedia</url>)</caption><sidebyside valigns="middle middle" widths="40% 40%">
 
 </example>
 
-<lemma xml:id="lemma-bipartite-hamiltonian"><statement><p>Suppose that <m>\bfG</m> is bipartite and Hamiltonian, with <m>n</m> red vertices and <m>m</m> blue vertices.</p></statement> <proof><p>Consider a Hamiltonian path in <m>\bfG</m>.  Since every edge is between a red and blue vertex, the vertices in the path must alternate between red and blue.  Considering every other edge of the cycle pairs each red vertex with a blue vertex, and hence <m>n=m</m>.</p></proof></lemma>
+<lemma xml:id="lemma-bipartite-hamiltonian"><statement><p>Suppose that <m>\bfG</m> is bipartite and Hamiltonian, with <m>n</m> red vertices and <m>m</m> blue vertices. Then <m>n=m</m>.</p></statement> <proof><p>Consider a Hamiltonian path in <m>\bfG</m>.  Since every edge is between a red and blue vertex, the vertices in the path must alternate between red and blue.  Considering every other edge of the cycle pairs each red vertex with a blue vertex, and hence <m>n=m</m>.</p></proof></lemma>
 
 <p>The contrapositive of <xref ref="lemma-bipartite-hamiltonian" /> can be used to show graphs <em>aren't</em> Hamiltonian: if <m>\bfG</m> is bipartite but doesn't have the same number of red vertices and blue vertices, then it can't be Hamiltonian.</p>
 
