@@ -25,7 +25,7 @@
 
 <p>  If <m>G</m> has an Eulerian cycle, we say that <m>G</m> is <em>Eulerian</em>.</p>
 
-<p>If we weaken the requirement, and do not require the walk to be closed, we call it an Euler path, and if a graph <m>G</m> has an Eulerian path but not an Eulerian cycle, we say <m>G</m> is <em>semi-Eulerian</em>.</p></definition>
+<p>If we weaken the requirement, and do not require the walk to be closed, we call it an Euler walk, and if a graph <m>G</m> has an Eulerian walk but not an Eulerian cycle, we say <m>G</m> is <em>semi-Eulerian</em>.</p></definition>
 
 <p>The question of the walkers of Konigsburg is then equivalent to asking if the graph <m>\Gamma_K</m> is Eulerian. The birth of graph theory is usually marked to the following theorem, proven by Euler.</p>  
 
