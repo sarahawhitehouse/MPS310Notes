@@ -112,7 +112,7 @@ That is, there are continuous functions <m>f:S^2\setminus\{p\}\to \reals^2</m> a
 
 <p>Examples of crossing graphs will appear soon.</p>
 
-<algorithm><title>The planarity algorithm for complete graphs</title><statement><p>Suppose that <m>G</m> is Hamiltonian, and <m>C</m> is a Hamiltonian cycle.  Then <m>G</m> is planar if and only if Cross(<m>G,C</m>) is bipartite.</p></statement></algorithm>
+<algorithm><title>The planarity algorithm for Hamiltonian graphs</title><statement><p>Suppose that <m>G</m> is Hamiltonian, and <m>C</m> is a Hamiltonian cycle.  Then <m>G</m> is planar if and only if Cross(<m>G,C</m>) is bipartite.</p></statement></algorithm>
 
 <p>The idea is that if <m>G</m> is planar, the vertices of Cross(<m>G,C</m>) are naturally bicolored, with the red vertices, say, corresponding to the edges that are drawn inside the cycle <m>C</m>, and the blue edge corresponding to the edges that are drawn outside the cycle <m>C</m>.  The definition of the edges of Cross(<m>G,C</m>) guarantees there are no edges between vertices of the same color.</p>
 
